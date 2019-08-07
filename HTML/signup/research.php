@@ -39,6 +39,7 @@
             Please provide a valid institution.
           </div>
         </div>
+
         <div class="form-group">
           <label for="department">Department</label><br>
           <input type="text" class="form-control typeahead" name="department" placeholder="Biology" autofocus required>
@@ -46,6 +47,7 @@
             Please provide a valid department.
           </div>
         </div>
+
         <div class="form-group">
           <label for="division">Division</label>
           <input type="text" class="form-control" name="division" placeholder="Neurobiology" required>
@@ -53,6 +55,7 @@
             Please provide a valid division.
           </div>
         </div>
+
         <div class="form-group">
           <label for="building">Building</label>
           <input type="text" class="form-control" name="building" placeholder="Urey Hall" required>
@@ -60,6 +63,7 @@
             Please provide a valid building.
           </div>
         </div>
+
         <div class="form-group">
           <label for="notificationLimit">Request Notification Limit Preference</label>
           <select class="form-control" name="notificationLimit">
@@ -74,6 +78,7 @@
             <b>Note:</b> The more requests you receive, the more people receive your requests when you need help.
           </small>
         </div>
+
         <br>
         <input type="hidden" name="firstName" value="<?php echo $_POST['firstName']; ?>">
         <input type="hidden" name="lastName" value="<?php echo $_POST['lastName']; ?>">
@@ -90,7 +95,7 @@
   <script src="../../js/validateForm.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="../../js/typeahead.js"></script>
-  <script src="../../js/departments.js"></script>
+  <script src="../../js/typeahead-depts.js"></script>
 </body>
 
 </html>

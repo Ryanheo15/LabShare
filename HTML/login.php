@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
-  <title>LabShare</title>
+  <script src="../js/app.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <title>Loading · LabShare</title>
 </head>
 
 <body>
@@ -24,37 +26,37 @@
   <!-- Body -->
   <section id="body" class="mt-4 mb-4">
     <div class="container">
-      <h2>Home</h2>
+      <h2>Loading</h2>
       <hr>
       <p>
-        LabShare is a website.
+        Please wait while LabShare processes your request.
+        <br>
+        <?php
+        /*
+        include '../../data/user_data-db.php';
+
+        $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+        	or die ('Could not connect to the database server' . mysqli_connect_error());
+
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+        $sql = "SELECT id FROM personal_info WHERE email = '$email' AND password = '$pass'";
+        $id = mysqli_query($con, $sql);
+
+        if ($con->query($sql) === TRUE) {
+            echo "<script> location.href='../user/index.html'; </script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $con->error;
+        }
+
+        $con->close();
+        */
+        echo "<script> location.href='user/'; </script>";
+        ?>
       </p>
-      <a href="signup/index.html">Register</a>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer id="footer" class="mt-4 mb-4">
-    <div class="container-fluid">
-      <hr>
-      <div class="row">
-        <div class="col">
-          <ul id="footer-links" class="list-inline">
-            <li><a href="about.html">About us</a></li> |
-            <li><a href="terms-of-service.html">Terms</a></li> |
-            <li><a href="privacy-policy.html">Privacy</a></li> |
-            <li><a href="help/">Help Center</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <p class="text-right">© LabShare 2019. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../js/app.js"></script>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 
 </html>

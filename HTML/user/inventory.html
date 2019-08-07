@@ -13,11 +13,39 @@
 </head>
 
 <body>
+  <!-- FIXME: Fix active nav bar links and collapsable button later -->
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-sm navbar-light bg-primary py-3">
     <div class="container">
-      <a href="index.html" class="navbar-brand text-white">LabShare</a>
-      <ion-icon name="flask" size="large"></ion-icon>
+      <a href="../index.html" class="navbar-brand text-white">LabShare</a>
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="#navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link text-white">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a href="inventory.html" class="nav-link text-white">Inventory</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="inbox.html" class="nav-link text-white">Messages</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="notifications.html" class="nav-link text-white">Notifications</a>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0 ml-4">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Ask A Favor</button>
+        </form>
+      </div>
     </div>
   </nav>
 
