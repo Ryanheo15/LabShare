@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,43 +11,44 @@
 </head>
 
 <body>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Password</th>
-      <th scope="col">Institution</th>
-      <th scope="col">Department</th>
-      <th scope="col">Division</th>
-      <th scope="col">Building</th>
-      <th scope="col">Notification Limit</th>
-    </tr>
-  </thead>
-  <tbody>
-<?php
-  include 'user_data-db.php';
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Institution</th>
+        <th scope="col">Department</th>
+        <th scope="col">Division</th>
+        <th scope="col">Building</th>
+        <th scope="col">Notification Limit</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+    include 'user_data-db.php';
 
-  $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-  or die('Could not connect to the database server' . mysqli_connect_error());
+    $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+    or die('Could not connect to the database server' . mysqli_connect_error());
 
-  $sql = "SELECT * FROM personal_info";
-  $result = mysqli_query($con, $sql);
-  $resultCheck = mysqli_num_rows($result);
+    $sql = "SELECT * FROM personal_info";
+    $result = mysqli_query($con, $sql);
+    $resultCheck = mysqli_num_rows($result);
 
-  if ($resultCheck > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-          echo '<tr>';
-          foreach ($row as $col) {
-              echo '<td>' . $col . '</td>';
-          }
-          echo '</tr>';
-      }
-  }
-?>
-  </tbody>
-</table>
+    if ($resultCheck > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            foreach ($row as $col) {
+                echo '<td>' . $col . '</td>';
+            }
+            echo '</tr>';
+        }
+    }
+    ?>
+    </tbody>
+  </table>
 </body>
+
 </html>

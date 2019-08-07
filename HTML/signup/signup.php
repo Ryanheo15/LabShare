@@ -60,7 +60,6 @@
 
         echo "<br><a href='../user/'>Continue to User Home</a>";
         ?>
-
       </p>
     </div>
   </section>
