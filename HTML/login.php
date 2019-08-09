@@ -31,6 +31,7 @@
       <p>
         Please wait while LabShare processes your request.
         <br>
+
         <?php
         /*
         include '../../data/user_data-db.php';
@@ -54,6 +55,7 @@
         */
         echo "<script> location.href='user/'; </script>";
         ?>
+
       </p>
     </div>
   </section>

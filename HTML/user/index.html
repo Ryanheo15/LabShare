@@ -47,11 +47,58 @@
 
         <form class="form-inline my-2 my-lg-0 ml-4">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Ask A Favor</button>
+          <button type = "button" class="btn btn-outline-light my-2 my-sm-0 " data-toggle = "modal" data-target = "#requestModal" id = "modalBtn">Ask A Favor</button>
         </form>
       </div>
     </div>
   </nav>
+
+  <!-- Request Modal Section -->
+  <div class = "modal fade" id = "requestModal" tabindex = -1 aria-labelledby="RequestModalLabel" aria-hidden="true">
+
+    <div class = "modal-dialog" role = "form">
+      <div class = "modal-content">
+        <div class = "modal-header">
+          <h4 class = "text-center text-primary modal-title" id = "RequestModalLabel">Submit A Request</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class = "modal-body">
+          <form class = "request-form" action = "request.php" method = "post">
+
+            <div class = "form-group">
+              <label for = "name" class = "text-primary">Name:</label>
+              <input type = "text" class = "form-control" placeholder = "ex.John">
+            </div>
+
+            <div class = "form-group">
+                <label for = "location" class = "text-primary">Location:</label>
+                <input type = "text" class = "form-control" placeholder = "ex.Myer Hall">
+            </div>
+
+            <div class = "form-group">
+                <label for = "date" class = "text-primary">Date:</label>
+                <input type = "text" class = "form-control" placeholder = "05-06-2019">
+            </div>
+
+            <div class = "form-group">
+                <label for = "request" class = "text-primary">Request</label>
+                <textarea class = "form-control" rows = "6">
+                </textarea>
+            </div>
+
+            <button type = "submit" class = "btn btn-primary">Submit</button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
 
   <!--Main Section  -->
   <section class="main mt-4">
@@ -229,6 +276,26 @@
 
       </div>
   </section>
+
+  <!-- Javascript Code -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+
+  //Modal Activation
+  $(document).ready(function(){
+    $("#modalBtn").click(function(){
+      $("#requestModal").modal();
+    });
+  });
+
+  </script>
 
 </body>
 
