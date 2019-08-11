@@ -77,6 +77,10 @@ body {
   height: 100%;
 }
 
+.help-header {
+  min-height: 400px!important;
+}
+
 /* Footer */
 #footer-links li {
   display: inline-block;
