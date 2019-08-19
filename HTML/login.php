@@ -53,7 +53,14 @@
 
         $con->close();
         */
-        echo "<script> location.href='user/'; </script>";
+        if ($_POST['username'] == 'admin@labshare.net' && $_POST['password'] == 'password')
+        {
+          echo "<script> location.href='admin/'; </script>";
+        }
+        else
+        {
+          echo "<script> location.href='user/'; </script>";
+        }
         ?>
 
       </p>

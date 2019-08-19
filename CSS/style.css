@@ -3,7 +3,10 @@ body {
   padding: 0;
 }
 
-/* User Home Page */
+/* ---------------------------------------------------
+    USER HOME PAGE
+----------------------------------------------------- */
+
 .prof-pic {
   border-radius: 20px;
   /*margin-top:-45px;*/
@@ -57,7 +60,10 @@ body {
   padding-bottom: -10px;
 }
 
-/* Header Section for Home Page */
+/* ---------------------------------------------------
+    HOME PAGE: HEADER
+----------------------------------------------------- */
+
 #header {
   position: relative;
   background-image: url("../Resources/blur-bottle-chemistry-248152.jpg");
@@ -81,15 +87,6 @@ body {
   min-height: 400px!important;
 }
 
-/* Footer */
-#footer-links li {
-  display: inline-block;
-}
-
-#footer-links li a {
-  color: inherit;
-}
-
 /* Login Form for Home Page */
 .login_form {
   margin-top: 100px !important;
@@ -104,6 +101,18 @@ body {
 .home-page-main {
   margin-top: 100px !important;
   margin-bottom: 100px;
+}
+
+/* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+
+#footer-links li {
+  display: inline-block;
+}
+
+#footer-links li a {
+  color: inherit;
 }
 
 /* index */
