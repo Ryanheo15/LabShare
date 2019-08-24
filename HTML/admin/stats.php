@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="../../CSS/style.css">
   <link rel="stylesheet" href="../../CSS/admin.css">
-  <title>Dashboard · Admin LabShare</title>
+  <title>Statistics · Admin LabShare</title>
 </head>
 
 <body>
@@ -65,7 +65,8 @@
         </div>
       </nav>
 
-      <h1 id="dashboard">Dashboard</h1>
+      <!-- Body -->
+      <h1 id="users">Statistics</h1>
       <div class="card">
         <div class="card-body">
           Text

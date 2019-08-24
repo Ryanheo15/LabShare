@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="../../CSS/style.css">
   <link rel="stylesheet" href="../../CSS/admin.css">
-  <title>Dashboard · Admin LabShare</title>
+  <title>Profile · Admin LabShare</title>
 </head>
 
 <body>
@@ -65,14 +65,105 @@
         </div>
       </nav>
 
-      <h1 id="dashboard">Dashboard</h1>
+      <!-- Body -->
+      <h1 id="profile">Profile</h1>
       <div class="card">
         <div class="card-body">
-          Text
+          <!-- Card One: Profile -->
+          <div class="card w-50">
+            <div class="first card-header bg-primary text-white">
+              Profile
+            </div>
+            <div class="card-body">
+              <div class="container">
+                <div class="d-flex">
+                  <div class="col-7">
+                    <div class="prof-pic img-fluid"></div>
+                  </div>
+
+                  <div class="col-8 align">
+                    <div class="align-self-end">John Smith</div>
+                    <div class="align-self-end">jsmith@ucsd.edu</div>
+                    <div class="align-self-end text-info">LabShare Moderator</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container mt-3">
+                <div class="row">
+                  <p><strong>Institution: </strong>UCSD</p>
+                </div>
+
+                <div class="row">
+                  <p><strong>Building: </strong>Urey Hall</p>
+                </div>
+
+                <div class="row">
+                  <p><strong>Department: </strong>Biology</p>
+                </div>
+
+                <div class="row">
+                  <p><strong>Division: </strong>Neuroscience</p>
+                  <div class="w-25"></div>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestModal" id="modalBtn">Edit Profile</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <hr>
     </div>
+  </div>
+
+  <!-- Edit Profile Modal Section -->
+  <div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="RequestModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="form">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="text-center text-primary modal-title" id="RequestModalLabel">Edit Profile</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form class="request-form" action="#" method="post">
+
+            <div class="form-group">
+              <label for="name" class="text-primary">Name:</label>
+              <input type="text" class="form-control" placeholder="John Smith">
+            </div>
+
+            <div class="form-group">
+              <label for="institution" class="text-primary">Institution:</label>
+              <input type="text" class="form-control" placeholder="UCSD">
+            </div>
+
+            <div class="form-group">
+              <label for="building" class="text-primary">Building:</label>
+              <input type="text" class="form-control" placeholder="Urey Hall">
+            </div>
+
+            <div class="form-group">
+              <label for="department" class="text-primary">Department:</label>
+              <input type="text" class="form-control" placeholder="Biology">
+            </div>
+
+            <div class="form-group">
+              <label for="division" class="text-primary">Division:</label>
+              <input type="text" class="form-control" placeholder="Neuroscience">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <!-- Javascript Code -->

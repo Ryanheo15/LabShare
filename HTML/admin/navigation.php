@@ -5,52 +5,60 @@
   </div>
 
   <ul class="list-unstyled components">
-    <li class="active">
-      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+    <li id="index">
+      <a href="index.php">
         <i class="fas fa-tachometer-alt"></i>
         Dashboard
       </a>
-      <ul class="collapse list-unstyled" id="homeSubmenu">
+    </li>
+
+    <li id="posts">
+      <a href="#postsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <i class="fas fa-comments"></i>
+        Posts
+      </a>
+      <ul class="collapse list-unstyled" id="postsSubmenu">
         <li>
-          <a href="#">Home 1</a>
+          <a href="posts.php">All Posts</a>
         </li>
         <li>
-          <a href="#">Home 2</a>
+          <a href="#">Requests</a>
         </li>
         <li>
-          <a href="#">Home 3</a>
+          <a href="#">Others</a>
         </li>
       </ul>
     </li>
-    <li>
-      <a href="#">
-        <i class="fas fa-briefcase"></i>
-        Requests
-      </a>
-      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-        <i class="fas fa-copy"></i>
+
+    <li id="users">
+      <a href="users.php">
+        <i class="fas fa-users"></i>
         Users
       </a>
-      <ul class="collapse list-unstyled" id="pageSubmenu">
-        <li>
-          <a href="#">Page 1</a>
-        </li>
-        <li>
-          <a href="#">Page 2</a>
-        </li>
-        <li>
-          <a href="#">Page 3</a>
-        </li>
-      </ul>
-      <a href="#">
+    </li>
+
+    <li id="stats">
+      <a href="stats.php">
         <i class="fas fa-chart-line"></i>
         Statistics
       </a>
-      <a href="#">
-        <i class="fas fa-user"></i>
+    </li>
+
+    <li id="profile">
+      <a href="profile.php">
+        <i class="fas fa-user-circle"></i>
         Profile
       </a>
     </li>
   </ul>
 
 </nav>
+
+<script>
+  var url = window.location.pathname;
+  var slashIndex = url.lastIndexOf('/');
+  var dotIndex = url.lastIndexOf('.');
+  var page = url.substring(slashIndex + 1, dotIndex);
+
+  document.getElementById(page).setAttribute('class', 'card-link active')
+</script>
