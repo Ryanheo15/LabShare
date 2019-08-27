@@ -1,4 +1,4 @@
-<nav id="sidebar">
+<nav id="sidebar" class="active">
   <div class="sidebar-header">
     <h3>LabShare Admin</h3>
     <strong>LS</strong>
@@ -53,12 +53,3 @@
   </ul>
 
 </nav>
-
-<script>
-  var url = window.location.pathname;
-  var slashIndex = url.lastIndexOf('/');
-  var dotIndex = url.lastIndexOf('.');
-  var page = url.substring(slashIndex + 1, dotIndex);
-
-  document.getElementById(page).setAttribute('class', 'card-link active')
-</script>
