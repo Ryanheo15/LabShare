@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -32,7 +32,7 @@
         <div class="card">
           <div class="card-body">
             <div class="card w-50">
-              <div class="first card-header bg-primary text-white">
+              <div class="first card-header bg-dark text-white">
                 Profile
               </div>
               <div class="card-body">
@@ -66,7 +66,7 @@
                   <div class="row">
                     <p><strong>Division: </strong>Neuroscience</p>
                     <div class="w-25"></div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestModal" id="modalBtn">Edit Profile</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal" id="modalBtn">Edit Profile</button>
                   </div>
                 </div>
               </div>
@@ -82,42 +82,42 @@
   </div>
 
   <!-- Edit Profile Modal Section -->
-  <div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="RequestModalLabel" aria-hidden="true">
+  <div class="modal fade" role="dialog" id="profileModal" tabindex=-1 aria-labelledby="profileModalLabel" aria-hidden="true">
 
     <div class="modal-dialog" role="form">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="text-center text-primary modal-title" id="RequestModalLabel">Edit Profile</h4>
+          <h4 class="text-center text-dark modal-title" id="profileModalLabel">Edit Profile</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
 
         <div class="modal-body">
-          <form class="request-form" action="#" method="post">
+          <form class="profile-form" action="#" method="post">
 
             <div class="form-group">
-              <label for="name" class="text-primary">Name:</label>
+              <label for="name" class="text-dark">Name:</label>
               <input type="text" class="form-control" placeholder="John Smith">
             </div>
 
             <div class="form-group">
-              <label for="institution" class="text-primary">Institution:</label>
+              <label for="institution" class="text-dark">Institution:</label>
               <input type="text" class="form-control" placeholder="UCSD">
             </div>
 
             <div class="form-group">
-              <label for="building" class="text-primary">Building:</label>
+              <label for="building" class="text-dark">Building:</label>
               <input type="text" class="form-control" placeholder="Urey Hall">
             </div>
 
             <div class="form-group">
-              <label for="department" class="text-primary">Department:</label>
+              <label for="department" class="text-dark">Department:</label>
               <input type="text" class="form-control" placeholder="Biology">
             </div>
 
             <div class="form-group">
-              <label for="division" class="text-primary">Division:</label>
+              <label for="division" class="text-dark">Division:</label>
               <input type="text" class="form-control" placeholder="Neuroscience">
             </div>
 

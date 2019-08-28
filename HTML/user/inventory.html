@@ -3,120 +3,183 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../css/style.css">
-  <title>Inventory · LabShare</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../CSS/style.css">
+
+    <title>Inventory · LabShare</title>
 </head>
 
 <body>
-  <!-- FIXME: Fix active nav bar links and collapsable button later -->
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-sm navbar-light bg-primary py-3">
-    <div class="container">
-      <a href="../index.html" class="navbar-brand text-white">LabShare</a>
+    <!-- FIXME: Fix active nav bar links and collapsable button later -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand text-white">LabShare</a>
 
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="#navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link text-white">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a href="inventory.html" class="nav-link text-white">Inventory</a>
-          </li>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-white">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="inventory.html" class="nav-link text-white">Inventory</a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="inbox.html" class="nav-link text-white">Messages</a>
-          </li>
+                    <li class="nav-item">
+                        <a href="inbox.html" class="nav-link text-white">
+                            Messages <span class="badge badge-light">8</span>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="notifications.html" class="nav-link text-white">Notifications</a>
-          </li>
-        </ul>
+                    <li class="nav-item">
+                        <a href="notifications.html" class="nav-link text-white">
+                            Notifications <span class="badge badge-light">4</span>
+                        </a>
+                    </li>
+                </ul>
 
-        <form class="form-inline my-2 my-lg-0 ml-4">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Ask A Favor</button>
-        </form>
-      </div>
+                <form class="form-inline my-2 my-lg-0 ml-4">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-outline-light my-2 my-sm-0 " data-toggle="modal" data-target="#requestModal" id="modalBtn">Ask A Favor</button>
+                </form>
+
+                <!-- Dropdown -->
+                <div class="dropdown ml-2">
+                    <button class="btn text-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                        <img id="nav-pic" width="30" height="30" class="img-fluid rounded" src="../../Resources/blank-profile-picture-973460_640.png">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="../help">Help</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../index.html">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Request Modal Section -->
+    <div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="RequestModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog" role="form">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="text-center text-dark modal-title" id="RequestModalLabel">Submit A Request</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="request-form" action="request.php" method="post">
+
+                        <div class="form-group">
+                            <label for="name" class="text-dark">Name:</label>
+                            <input type="text" class="form-control" placeholder="ex: John">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location" class="text-dark">Location:</label>
+                            <input type="text" class="form-control" placeholder="ex: Myer Hall">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date" class="text-dark">Date:</label>
+                            <input type="text" class="form-control" placeholder="05-06-2019">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="request" class="text-dark">Request:</label>
+                            <textarea class="form-control" rows="6">
+                            </textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-  </nav>
 
-  <!-- Body -->
-  <section id="body" class="mt-4 mb-4">
-    <div class="container">
-      <h2>Inventory</h2>
-      <hr>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">col-1</th>
-            <th scope="col">col-2</th>
-            <th scope="col">col-3</th>
-            <th scope="col">col-4</th>
-            <th scope="col">col-5</th>
-            <th scope="col">col-6</th>
-            <th scope="col">col-7</th>
-            <th scope="col">col-8</th>
-            <th scope="col">col-9</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-            <td>duog</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <!-- Body -->
+    <section id="body" class="my-4">
+        <div class="container">
+            <h2>Inventory</h2>
+            <hr>
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  <script src="../../js/app.js"></script>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">col-1</th>
+                        <th scope="col">col-2</th>
+                        <th scope="col">col-3</th>
+                        <th scope="col">col-4</th>
+                        <th scope="col">col-5</th>
+                        <th scope="col">col-6</th>
+                        <th scope="col">col-7</th>
+                        <th scope="col">col-8</th>
+                        <th scope="col">col-9</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
