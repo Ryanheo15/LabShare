@@ -1,3 +1,4 @@
 - Remove app.js (Scrollspy) because of new Scrollspy implementation that does not require it.
 - Remove X-UA-Compatible meta tag because of Windows' changes to IE browsers
 - Update all Bootstrap imports (CSS & JS)
+- Bootstrap jumbotron for front page?

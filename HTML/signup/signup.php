@@ -5,12 +5,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/style.css">
-  <script src="../../js/app.js"></script>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
   <title>Loading · LabShare</title>
 </head>
 
@@ -19,7 +18,7 @@
   <nav class="navbar navbar-expand-sm navbar-light bg-primary py-3">
     <div class="container">
       <a href="../user/" class="navbar-brand text-white">LabShare</a>
-      <ion-icon name="flask" size="large"></ion-icon>
+      <i class="fas fa-flask fa-2x"></i>
     </div>
   </nav>
 
