@@ -1,6 +1,7 @@
 Trivial/Insignificant:
 - Remove app.js (Scrollspy) because of new Scrollspy implementation that does not require it.
 - Remove X-UA-Compatible meta tag because of Windows' changes to IE browsers
+<<<<<<< HEAD
 - Update all Bootstrap imports (CSS & JS)\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     CSS - Font Awesome:
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
@@ -15,3 +16,7 @@ Trivial/Insignificant:
 - Connect files to databases online
 - Figure out typeahead for forms
 - Make sure paths are case-sensitive
+=======
+- Update all Bootstrap imports (CSS & JS)
+- Bootstrap jumbotron for front page?
+>>>>>>> 9c35f5cc0b7d37df4112edfd171d490484eea3b9
