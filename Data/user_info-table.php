@@ -28,24 +28,24 @@
     </thead>
     <tbody>
     <?php
-    include 'user_data-db.php';
+        include 'user_data-db.php';
 
-    $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-    or die('Could not connect to the database server' . mysqli_connect_error());
+        $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+        or die('Could not connect to the database server' . mysqli_connect_error());
 
-    $sql = "SELECT * FROM personal_info";
-    $result = mysqli_query($con, $sql);
-    $resultCheck = mysqli_num_rows($result);
+        $sql = "SELECT * FROM personal_info";
+        $result = mysqli_query($con, $sql);
+        $resultCheck = mysqli_num_rows($result);
 
-    if ($resultCheck > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<tr>';
-            foreach ($row as $col) {
-                echo '<td>' . $col . '</td>';
+        if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<tr>';
+                foreach ($row as $col) {
+                    echo '<td>' . $col . '</td>';
+                }
+                echo '</tr>';
             }
-            echo '</tr>';
         }
-    }
     ?>
     </tbody>
   </table>

@@ -31,7 +31,7 @@
                 Please wait while LabShare processes your request.
                 <br>
                 <?php
-                    include '../../data/user_data-db.php';
+                    include '../../Data/user_data-db.php';
 
                     $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
                         or die('Could not connect to the database server' . mysqli_connect_error());

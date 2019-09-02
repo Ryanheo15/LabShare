@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
 body {
-  margin: 0;
-  padding: 0;
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* ---------------------------------------------------
@@ -8,56 +11,58 @@ body {
 ----------------------------------------------------- */
 
 .prof-pic {
-  border-radius: 20px;
-  /*margin-top:-45px;*/
-  height: 120px;
-  width: 120px;
-  content: url("../Resources/blank-profile-picture-973460_640.png");
+    border-radius: 20px;
+    /*margin-top:-45px;*/
+    height: 120px;
+    width: 120px;
+    content: url("../Resources/blank-profile-picture-973460_640.png");
 }
 
 .helpful-links a {
-  color: #007bff;
+    color: #007bff;
 }
 
 .helpful-links a:hover {
-  background-color: #007bff;
-  color: white;
+    background-color: #007bff;
+    color: white;
 }
 
 .active {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .card {
-  width: 100%;
+    width: 100%;
 }
 
 .list-group-item a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
-.hover-item:hover, .hover-item:active {
-  background-color: #007bff;
-  cursor: -webkit-grab;
-  cursor: grab;
+.hover-item:hover,
+.hover-item:active {
+    background-color: #007bff;
+    cursor: -webkit-grab;
+    cursor: grab;
 }
 
-.list-group-item:hover a, .list-group-item:active a {
-  color: white;
-  text-decoration: none;
+.list-group-item:hover a,
+.list-group-item:active a {
+    color: white;
+    text-decoration: none;
 }
 
 .date {
-  width: 100%;
+    width: 100%;
 }
 
 .request-btn {
-  width: 100%;
-  margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .requests {
-  padding-bottom: -10px;
+    padding-bottom: -10px;
 }
 
 /* ---------------------------------------------------
@@ -65,42 +70,42 @@ body {
 ----------------------------------------------------- */
 
 #header {
-  position: relative;
-  background-image: url("../Resources/blur-bottle-chemistry-248152.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 600px;
+    position: relative;
+    background-image: url("../Resources/blur-bottle-chemistry-248152.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 600px;
 }
 
 #header .primary-overlay {
-  background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .help-header {
-  min-height: 400px!important;
+    min-height: 400px !important;
 }
 
 /* Login Form for Home Page */
 .login-form {
-  margin-top: 100px !important;
+    margin-top: 100px !important;
 }
 
 /* Cards from Home Page */
 .home-page-cards {
-  height: 500px;
+    height: 500px;
 }
 
 /* Home Page Main */
 .home-page-main {
-  margin-top: 100px !important;
-  margin-bottom: 100px;
+    margin-top: 100px !important;
+    margin-bottom: 100px;
 }
 
 /* ---------------------------------------------------
@@ -108,11 +113,11 @@ body {
 ----------------------------------------------------- */
 
 #footer-links li {
-  display: inline-block;
+    display: inline-block;
 }
 
 #footer-links li a {
-  color: inherit;
+    color: inherit;
 }
 
 /* index */
