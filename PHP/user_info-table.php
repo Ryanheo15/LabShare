@@ -28,13 +28,10 @@
     </thead>
     <tbody>
     <?php
-        include 'user_data-db.php';
-
-        $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-        or die('Could not connect to the database server' . mysqli_connect_error());
+        include 'db_connection.php';
 
         $sql = "SELECT * FROM personal_info";
-        $result = mysqli_query($con, $sql);
+        $result = mysqli_query($connection, $sql);
         $resultCheck = mysqli_num_rows($result);
 
         if ($resultCheck > 0) {

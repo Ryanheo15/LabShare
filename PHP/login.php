@@ -33,33 +33,30 @@
 
                 <?php
                     /*
-                    include '../../data/user_data-db.php';
-
-                    $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-                        or die ('Could not connect to the database server' . mysqli_connect_error());
+                    include 'db_connection.php';
 
                     $email = $_POST['email'];
                     $pass = $_POST['password'];
 
                     $sql = "SELECT id FROM personal_info WHERE email = '$email' AND password = '$pass'";
-                    $id = mysqli_query($con, $sql);
+                    $id = mysqli_query($connection, $sql);
 
-                    if ($con->query($sql) === TRUE) {
+                    if ($connection->query($sql) === TRUE) {
                         echo "<script> location.href='../user/index.html'; </script>";
                     } else {
-                        echo "Error: " . $sql . "<br>" . $con->error;
+                        echo "Error: " . $sql . "<br>" . $connection->error;
                     }
 
-                    $con->close();
+                    $connection->close();
                     */
 
                     if ($_POST['username'] == 'admin@labshare.net' && $_POST['password'] == 'password')
                     {
-                      echo "<script> location.href='admin/'; </script>";
+                      echo "<script> location.href='../HTML/admin/'; </script>";
                     }
                     else
                     {
-                      echo "<script> location.href='user/'; </script>";
+                      echo "<script> location.href='../HTML/user/'; </script>";
                     }
                 ?>
 
