@@ -31,33 +31,46 @@
                 Please wait while LabShare processes your request.
                 <br>
                 <?php
-                    include '../../Data/user_data-db.php';
+                    include "db_connection.php";
 
-                    $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-                        or die('Could not connect to the database server' . mysqli_connect_error());
 
-                    $fName = $_POST['firstName'];
-                    $lName = $_POST['lastName'];
-                    $email = $_POST['email'];
-                    $pass = $_POST['password'];
-                    $institution = $_POST['institution'];
-                    $dept = $_POST['department'];
-                    $division = $_POST['division'];
-                    $building = $_POST['building'];
-                    $limit = $_POST['notificationLimit'];
+                    if(isset($_POST["submit"])){
+                      $fName = $_POST['firstName'];
+                      $lName = $_POST['lastName'];
+                      $email = $_POST['email'];
+                      $pass = $_POST['password'];
+                      $institution = $_POST['institution'];
+                      $dept = $_POST['department'];
+                      $division = $_POST['division'];
+                      $building = $_POST['building'];
+                      $limit = $_POST['notificationLimit'];
 
-                    $sql = "INSERT INTO personal_info
-                    VALUES (DEFAULT, '$fName', '$lName', '$email', '$pass', '$institution', '$dept', '$division', '$building', '$limit')";
+                      //Adding security
+                      $pass = my_sqli_real_escape_string($connection, $pass);
+                      $email = my_sqli_real_escape_string($connection,$email);
 
-                    if ($con->query($sql) === true) {
-                        echo "<script> location.href='../user/index.html'; </script>";
-                    } else {
-                        echo "Error: " . $sql . "<br>" . $con->error;
+                      //Password encryption
+                      $hashFormat = "$2y$10$";
+                      $salt = "iusesomecrazystrings22";
+                      $hashF_and_salt = $hashFormat . $salt;
+
+                      $pass = crypt($password,$hashF_and_salt);
+
+
+                      $user_insert_query = "INSERT INTO users(first_name,last_name,email,password,instiution,department,division,building,notification_limit)
+                      VALUES ('$fName', '$lName', '$email', '$pass', '$institution', '$dept', '$division', '$building', '$limit')";
+
+                      if ($connection->query($user_insert_query) === true) {
+                          echo "<script> location.href='../HTML/user/index.html'; </script>";
+                      } else {
+                          echo "Error: " . $user_insert_query . "<br>" . $connection->error;
+                      }
+
+                      $connection->close();
+
+                      echo "<br><a href='../HTML/user/'>Continue to User Home</a>";
                     }
 
-                    $con->close();
-
-                    echo "<br><a href='../user/'>Continue to User Home</a>";
             ?>
             </p>
         </div>
@@ -70,10 +83,10 @@
             <div class="row">
                 <div class="col">
                     <ul id="footer-links" class="list-inline">
-                        <li><a href="../about.html">About us</a></li> |
-                        <li><a href="../terms-of-service.html">Terms</a></li> |
-                        <li><a href="../privacy-policy.html">Privacy</a></li> |
-                        <li><a href="../help/">Help Center</a></li>
+                        <li><a href="../HTML/main/about.html">About us</a></li> |
+                        <li><a href="../HTML/main/terms-of-service.html">Terms</a></li> |
+                        <li><a href="..HTML/main/privacy-policy.html">Privacy</a></li> |
+                        <li><a href="..HTML/main/help/">Help Center</a></li>
                     </ul>
                 </div>
 
