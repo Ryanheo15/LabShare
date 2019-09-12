@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
         <div class="container">
-            <a href="index.html" class="navbar-brand">LabShare</a>
+            <a href="../index.html" class="navbar-brand">LabShare</a>
             <i class="fas fa-flask fa-2x text-info"></i>
         </div>
     </nav>
@@ -30,7 +30,7 @@
             </p>
             <hr>
 
-            <form action="signup.php" method="post" class="needs-validation" novalidate>
+            <form action="../../PHP/signup.php" method="post" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="institution">Institution</label>
                     <input type="text" class="form-control" name="institution" value="University of California, San Diego" readonly>

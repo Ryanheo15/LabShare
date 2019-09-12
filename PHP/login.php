@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
         <div class="container">
-            <a href="index.html" class="navbar-brand">LabShare</a>
+            <a href="../HTML/" class="navbar-brand">LabShare</a>
             <i class="fas fa-flask fa-2x text-info"></i>
         </div>
     </nav>
@@ -38,11 +38,11 @@
                     $email = $_POST['email'];
                     $pass = $_POST['password'];
 
-                    $sql = "SELECT id FROM personal_info WHERE email = '$email' AND password = '$pass'";
+                    $sql = "SELECT primary_id FROM users WHERE email = '$email' AND password = '$pass'";
                     $id = mysqli_query($connection, $sql);
 
                     if ($connection->query($sql) === TRUE) {
-                        echo "<script> location.href='../user/index.html'; </script>";
+                        echo "<script> location.href='../HTML/user/index.html'; </script>";
                     } else {
                         echo "Error: " . $sql . "<br>" . $connection->error;
                     }
