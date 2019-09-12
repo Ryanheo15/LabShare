@@ -2,7 +2,7 @@
 //Make sure to INCLUDE this file when accessing mysql databases
 
 //Creating an array for database connection
-$db["db_host"] = "localhost";
+$db["db_host"] = "bluehost";
 $db["db_username"] = "root";
 $db["db_pass"] = "";
 $db["db_name"] = "cms";
