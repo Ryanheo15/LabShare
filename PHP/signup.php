@@ -33,8 +33,6 @@
                 <?php
                     include "db_connection.php";
 
-
-                    if(isset($_POST["submit"])){
                       $fName = $_POST['firstName'];
                       $lName = $_POST['lastName'];
                       $email = $_POST['email'];
@@ -45,19 +43,24 @@
                       $building = $_POST['building'];
                       $limit = $_POST['notificationLimit'];
 
+                      //Type conversion
+                      if($limit == "Unlimited"){
+                        $limit = 100;
+                      }
+
                       //Adding security
-                      $pass = my_sqli_real_escape_string($connection, $pass);
-                      $email = my_sqli_real_escape_string($connection,$email);
+                      $pass = mysqli_real_escape_string($connection, $pass);
+                      $email = mysqli_real_escape_string($connection,$email);
 
                       //Password encryption
                       $hashFormat = "$2y$10$";
                       $salt = "iusesomecrazystrings22";
                       $hashF_and_salt = $hashFormat . $salt;
 
-                      $pass = crypt($password,$hashF_and_salt);
+                      $pass = crypt($pass,$hashF_and_salt);
 
 
-                      $user_insert_query = "INSERT INTO users(first_name,last_name,email,password,instiution,department,division,building,notification_limit)
+                      $user_insert_query = "INSERT INTO users(first_name,last_name,email,password,institution,department,division,building,notification_limit)
                       VALUES ('$fName', '$lName', '$email', '$pass', '$institution', '$dept', '$division', '$building', '$limit')";
 
                       if ($connection->query($user_insert_query) === true) {
@@ -69,7 +72,6 @@
                       $connection->close();
 
                       echo "<br><a href='../HTML/user/'>Continue to User Home</a>";
-                    }
 
             ?>
             </p>

@@ -45,11 +45,11 @@
 
                         <!-- Right: Login -->
                         <div class="login-form card-body offset-lg-2 col-lg-4 border border-primary rounded">
-                            <form class="form-signin needs-validation" method="post" action="../PHP/login.php" novalidate>
+                            <form class="form-signin needs-validation" method="post" action="index.php" onsubmit="validate()" novalidate>
                                 <h1 class="pb-2">Already a user?</h1>
                                 <div class="form-group">
                                     <label for="username">Email Address:</label>
-                                    <input type="email" class="form-control" name="username" autofocus required></input>
+                                    <input type="email" class="form-control" name="email" autofocus required></input>
                                 </div>
 
                                 <div class="form-group">
@@ -58,7 +58,7 @@
                                     <small class="form-text"><a class="text-light" href="main/reset-password.html">Forgot your password?</a></small>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary btn-lg btn-block mt-4" name="login">Login</button>
+                                <button type="submit" class="login_btn btn btn-primary btn-lg btn-block mt-4" name="login">Login</button>
                             </form>
                         </div>
 
@@ -194,10 +194,94 @@
         </div>
     </footer>
 
+    <script type="text/javascript">
+    function validate() {
+    let valid =
+    <?php
+        include '../PHP/db_connection.php';
+
+          $email = $_POST['email'];
+          $pass = $_POST['password'];
+
+          //Adding security
+          $pass = mysqli_real_escape_string($connection, $pass);
+          $email = mysqli_real_escape_string($connection,$email);
+
+          //Password encryption
+          $hashFormat = "$2y$10$";
+          $salt = "iusesomecrazystrings22";
+          $hashF_and_salt = $hashFormat . $salt;
+
+          $pass = crypt($pass,$hashF_and_salt);
+
+          $verify = "SELECT * FROM users WHERE email = '$email' AND password = '$pass'";
+          $verify_query = mysqli_query($connection, $verify);
+
+
+          if(!$verify_query){
+            die("SEARCH QUERY FAILED " . mysqli_error($connection));
+          }
+
+          else {
+
+            $verify_array = mysqli_fetch_assoc($verify_query);
+
+            if($verify_array['email'] == $email && $verify_array['password'] == $pass) {
+                echo json_encode(true);
+                /*
+                echo "<script> location.href='user/index.html'; </script>";
+
+
+
+                session_start();
+
+                $_SESSION['id'] = mysqli_fetch_assoc($verify_query);
+                */
+
+            }
+            else {
+              //echo "<script> location.href='../HTML/index.html'; </script>";
+              //header("Location: index.php?login-failed");
+
+              //echo "<script> alert('Incorrect password and username');</script>";
+
+              echo json_encode(false);
+
+            }
+
+          }
+
+          $connection->close();
+
+
+
+        /*
+        if ($_POST['username'] == 'admin@labshare.net' && $_POST['password'] == 'password')
+        {
+          echo "<script> location.href='../HTML/admin/'; </script>";
+        }
+        else
+        {
+          echo "<script> location.href='../HTML/user/'; </script>";
+        }
+        */
+    ?>;
+
+    if (!valid) {
+      alert("PICKLE");
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../JS/validateForm.js"></script>
+
 </body>
 
 </html>
