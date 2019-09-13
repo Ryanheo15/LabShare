@@ -30,7 +30,7 @@
     <?php
         include 'db_connection.php';
 
-        $sql = "SELECT * FROM personal_info";
+        $sql = "SELECT * FROM users";
         $result = mysqli_query($connection, $sql);
         $resultCheck = mysqli_num_rows($result);
 

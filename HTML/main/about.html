@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
         <div class="container">
-            <a href="../index.html" class="navbar-brand">LabShare</a>
+            <a href="../index.php" class="navbar-brand">LabShare</a>
             <i class="fas fa-flask fa-2x text-info"></i>
         </div>
     </nav>

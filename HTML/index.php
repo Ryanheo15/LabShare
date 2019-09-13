@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
         <div class="container">
-            <a href="index.html" class="navbar-brand">LabShare</a>
+            <a href="index.php" class="navbar-brand">LabShare</a>
             <i class="fas fa-flask fa-2x text-info"></i>
         </div>
     </nav>
@@ -45,10 +45,10 @@
 
                         <!-- Right: Login -->
                         <div class="login-form card-body offset-lg-2 col-lg-4 border border-primary rounded">
-                            <form class="form-signin needs-validation" method="post" action="index.php" onsubmit="validate()" novalidate>
+                            <form class="form-signin needs-validation" method="post" action="index.php?valid=false" novalidate>
                                 <h1 class="pb-2">Already a user?</h1>
                                 <div class="form-group">
-                                    <label for="username">Email Address:</label>
+                                    <label for="email">Email Address:</label>
                                     <input type="email" class="form-control" name="email" autofocus required></input>
                                 </div>
 
@@ -58,7 +58,7 @@
                                     <small class="form-text"><a class="text-light" href="main/reset-password.html">Forgot your password?</a></small>
                                 </div>
 
-                                <button type="submit" class="login_btn btn btn-primary btn-lg btn-block mt-4" name="login">Login</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block mt-4" name="login">Login</button>
                             </form>
                         </div>
 
@@ -194,88 +194,52 @@
         </div>
     </footer>
 
-    <script type="text/javascript">
-    function validate() {
-    let valid =
     <?php
-        include '../PHP/db_connection.php';
+        if (isset($_GET['valid']) && $_GET['valid'] == 'false') {
+            include '../PHP/db_connection.php';
 
-          $email = $_POST['email'];
-          $pass = $_POST['password'];
+            $pass = $_POST['password'];
+            $email = $_POST['email'];
 
-          //Adding security
-          $pass = mysqli_real_escape_string($connection, $pass);
-          $email = mysqli_real_escape_string($connection,$email);
+            //Adding security
+            $pass = mysqli_real_escape_string($connection, $pass);
+            $email = mysqli_real_escape_string($connection, $email);
 
-          //Password encryption
-          $hashFormat = "$2y$10$";
-          $salt = "iusesomecrazystrings22";
-          $hashF_and_salt = $hashFormat . $salt;
+            //Password encryption
+            $pass = encrypt($pass);
 
-          $pass = crypt($pass,$hashF_and_salt);
-
-          $verify = "SELECT * FROM users WHERE email = '$email' AND password = '$pass'";
-          $verify_query = mysqli_query($connection, $verify);
+            $verify = "SELECT * FROM users WHERE email = '$email' AND password = '$pass'";
+            $verify_query = mysqli_query($connection, $verify);
 
 
-          if(!$verify_query){
-            die("SEARCH QUERY FAILED " . mysqli_error($connection));
-          }
-
-          else {
-
-            $verify_array = mysqli_fetch_assoc($verify_query);
-
-            if($verify_array['email'] == $email && $verify_array['password'] == $pass) {
-                echo json_encode(true);
-                /*
-                echo "<script> location.href='user/index.html'; </script>";
-
-
-
-                session_start();
-
-                $_SESSION['id'] = mysqli_fetch_assoc($verify_query);
-                */
-
+            if (!$verify_query) {
+                die("SEARCH QUERY FAILED " . mysqli_error($connection));
             }
             else {
-              //echo "<script> location.href='../HTML/index.html'; </script>";
-              //header("Location: index.php?login-failed");
+                $verify_array = mysqli_fetch_assoc($verify_query);
+                $connection->close();
 
-              //echo "<script> alert('Incorrect password and username');</script>";
+                if ($verify_array['email'] == $email && $verify_array['password'] == $pass) {
+                    session_start();
+                    $_SESSION['id'] = $verify_array['primary_id'];
 
-              echo json_encode(false);
-
+                    if ($email == $admin_email) {
+                        echo "<script> location.href='admin/index.php'; </script>";
+                    }
+                    echo "<script> location.href='user/index.php'; </script>";
+                }
+                else {
+                    echo "<script> setTimeout(function(){ alert('Incorrect email or password'); location.href='index.php';}, 500); </script>";
+                }
             }
-
-          }
-
-          $connection->close();
-
-
-
+        }
         /*
         if ($_POST['username'] == 'admin@labshare.net' && $_POST['password'] == 'password')
         {
           echo "<script> location.href='../HTML/admin/'; </script>";
         }
-        else
-        {
-          echo "<script> location.href='../HTML/user/'; </script>";
-        }
         */
-    ?>;
-
-    if (!valid) {
-      alert("PICKLE");
-      return false;
-    }
-    else {
-      return true;
-    }
-  }
-    </script>
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

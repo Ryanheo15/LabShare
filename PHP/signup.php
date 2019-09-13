@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 
     <title>Loading · LabShare</title>
 </head>
@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
         <div class="container">
-            <a href="index.html" class="navbar-brand">LabShare</a>
+            <a href="../HTML/index.php" class="navbar-brand">LabShare</a>
             <i class="fas fa-flask fa-2x text-info"></i>
         </div>
     </nav>
@@ -33,46 +33,41 @@
                 <?php
                     include "db_connection.php";
 
-                      $fName = $_POST['firstName'];
-                      $lName = $_POST['lastName'];
-                      $email = $_POST['email'];
-                      $pass = $_POST['password'];
-                      $institution = $_POST['institution'];
-                      $dept = $_POST['department'];
-                      $division = $_POST['division'];
-                      $building = $_POST['building'];
-                      $limit = $_POST['notificationLimit'];
+                    $fName = $_POST['firstName'];
+                    $lName = $_POST['lastName'];
+                    $email = $_POST['email'];
+                    $pass = $_POST['password'];
+                    $institution = $_POST['institution'];
+                    $dept = $_POST['department'];
+                    $division = $_POST['division'];
+                    $building = $_POST['building'];
+                    $limit = $_POST['notificationLimit'];
 
-                      //Type conversion
-                      if($limit == "Unlimited"){
-                        $limit = 100;
-                      }
+                    //Type conversion
+                    if ($limit == "Unlimited") {
+                      $limit = 100;
+                    }
 
-                      //Adding security
-                      $pass = mysqli_real_escape_string($connection, $pass);
-                      $email = mysqli_real_escape_string($connection,$email);
+                    //Adding security
+                    $pass = mysqli_real_escape_string($connection, $pass);
+                    $email = mysqli_real_escape_string($connection, $email);
 
-                      //Password encryption
-                      $hashFormat = "$2y$10$";
-                      $salt = "iusesomecrazystrings22";
-                      $hashF_and_salt = $hashFormat . $salt;
+                    //Password encryption
+                    $pass = encrypt($pass);
 
-                      $pass = crypt($pass,$hashF_and_salt);
+                    $user_insert_query = "INSERT INTO users(first_name,last_name,email,password,institution,department,division,building,notification_limit)
+                    VALUES ('$fName', '$lName', '$email', '$pass', '$institution', '$dept', '$division', '$building', '$limit')";
 
+                    if ($connection->query($user_insert_query) === true) {
+                      echo "<script> location.href='../HTML/user/'; </script>";
+                    }
+                    else {
+                      echo "Error: " . $user_insert_query . "<br>" . $connection->error;
+                    }
 
-                      $user_insert_query = "INSERT INTO users(first_name,last_name,email,password,institution,department,division,building,notification_limit)
-                      VALUES ('$fName', '$lName', '$email', '$pass', '$institution', '$dept', '$division', '$building', '$limit')";
+                    $connection->close();
 
-                      if ($connection->query($user_insert_query) === true) {
-                          echo "<script> location.href='../HTML/user/index.html'; </script>";
-                      } else {
-                          echo "Error: " . $user_insert_query . "<br>" . $connection->error;
-                      }
-
-                      $connection->close();
-
-                      echo "<br><a href='../HTML/user/'>Continue to User Home</a>";
-
+                    echo "<br><a href='../HTML/user/'>Continue to User Home</a>";
             ?>
             </p>
         </div>
@@ -87,8 +82,8 @@
                     <ul id="footer-links" class="list-inline">
                         <li><a href="../HTML/main/about.html">About us</a></li> |
                         <li><a href="../HTML/main/terms-of-service.html">Terms</a></li> |
-                        <li><a href="..HTML/main/privacy-policy.html">Privacy</a></li> |
-                        <li><a href="..HTML/main/help/">Help Center</a></li>
+                        <li><a href="../HTML/main/privacy-policy.html">Privacy</a></li> |
+                        <li><a href="../HTML/main/help/">Help Center</a></li>
                     </ul>
                 </div>
 

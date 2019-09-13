@@ -35,7 +35,7 @@
                             <a class="dropdown-item" href="../help">Help</a>
                             <a id="settings" class="dropdown-item" href="settings.php">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../index.html">Log out</a>
+                            <a class="dropdown-item" href="../index.php">Log out</a>
                         </div>
                     </div>
                 </li>
