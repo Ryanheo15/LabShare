@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -220,13 +221,24 @@
                 $connection->close();
 
                 if ($verify_array['email'] == $email && $verify_array['password'] == $pass) {
-                    session_start();
-                    $_SESSION['id'] = $verify_array['primary_id'];
+
+                  $_SESSION['id'] = $verify_array['primary_id'];
+                  $_SESSION['first_name'] = $verify_array['first_name'];
+                  $_SESSION['last_name'] = $verify_array['last_name'];
+                  $_SESSION['email'] = $verify_array['email'];
+                  $_SESSION['password'] = $verify_array['password'];
+                  $_SESSION['institution'] = $verify_array['institution'];
+                  $_SESSION['department'] = $verify_array['department'];
+                  $_SESSION['division'] = $verify_array['division'];
+                  $_SESSION['building'] = $verify_array['building'];
+                  $_SESSION['notification_limit'] = $verify_array['notification_limit'];
 
                     if ($email == $admin_email) {
                         echo "<script> location.href='admin/index.php'; </script>";
                     }
                     echo "<script> location.href='user/index.php'; </script>";
+
+
                 }
                 else {
                     echo "<script> setTimeout(function(){ alert('Incorrect email or password'); location.href='index.php';}, 500); </script>";
