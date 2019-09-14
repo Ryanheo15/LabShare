@@ -31,11 +31,11 @@
                 Please wait while LabShare processes your request.
                 <br>
                 <?php
-                    include "db_connection.php";
+                    include "includes/global.php";
 
                     $fName = $_POST['firstName'];
                     $lName = $_POST['lastName'];
-                    $email = $_POST['email'];
+                    $email = $_POST['email'] . '@ucsd.edu';
                     $pass = $_POST['password'];
                     $institution = $_POST['institution'];
                     $dept = $_POST['department'];

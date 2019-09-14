@@ -1,5 +1,5 @@
 <?php
-    include 'db_connection.php';
+    include '../includes/db_connection.php';
 
     echo
     "<form method='get'>

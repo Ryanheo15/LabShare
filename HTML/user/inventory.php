@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../CSS/style.css">
 
-    <title>Notifications · LabShare</title>
+    <title>Inventory · LabShare</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a href="index.html" class="nav-link text-white">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="inventory.html" class="nav-link text-white">Inventory</a>
                     </li>
 
@@ -39,7 +39,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="notifications.html" class="nav-link text-white">
                             Notifications <span class="badge badge-light">4</span>
                         </a>
@@ -60,7 +60,7 @@
                         <a class="dropdown-item" href="../help">Help</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../index.html">Log out</a>
+                        <a class="dropdown-item" href="../index.php">Log out</a>
                     </div>
                 </div>
             </div>
@@ -115,37 +115,67 @@
 
 
     <!-- Body -->
-    <main id="body" class="my-4">
+    <section id="body" class="my-4">
         <div class="container">
-            <h2>Notifications</h2>
+            <h2>Inventory</h2>
             <hr>
 
-            <!-- Notificiations Page -->
-            <section id="notifications">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </li>
-
-                    <li class="list-group-item">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </li>
-
-                    <li class="list-group-item">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </li>
-
-                    <li class="list-group-item">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </li>
-
-                    <li class="list-group-item">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </li>
-            </section>
-
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">col-1</th>
+                        <th scope="col">col-2</th>
+                        <th scope="col">col-3</th>
+                        <th scope="col">col-4</th>
+                        <th scope="col">col-5</th>
+                        <th scope="col">col-6</th>
+                        <th scope="col">col-7</th>
+                        <th scope="col">col-8</th>
+                        <th scope="col">col-9</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                        <td>duog</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </main>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

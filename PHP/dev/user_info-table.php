@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../../CSS/style.css">
   <title>User Info · LabShare</title>
 </head>
 
@@ -28,7 +28,7 @@
     </thead>
     <tbody>
     <?php
-        include 'db_connection.php';
+        include '../includes/db_connection.php';
 
         $sql = "SELECT * FROM users";
         $result = mysqli_query($connection, $sql);
