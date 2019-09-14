@@ -2,7 +2,6 @@
 
 <script>
 
-console.log("hello");
 //DOM SELECTION
 let profile_card = document.querySelector(".profile-card");
 let name = document.querySelector(".name");

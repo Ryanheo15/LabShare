@@ -360,7 +360,7 @@
     <script src = "../../JS/user_requests.js"></script>
 
     <!-- PHP include -->
-    <?php include "../../JS/requests_page_js.php"; ?>
+    <?php include "../../JS/post_user_profile_update.php"; ?>
 </body>
 
 </html>
