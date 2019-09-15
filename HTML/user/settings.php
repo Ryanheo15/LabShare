@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
         <div class="container">
-            <a href="../index.php" class="navbar-brand text-white">LabShare</a>
+            <a href="index.php" class="navbar-brand text-white">LabShare</a>
 
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -27,20 +27,20 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link text-white">Home</a>
+                        <a href="index.php" class="nav-link text-white">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="inventory.html" class="nav-link text-white">Inventory</a>
+                        <a href="inventory.php" class="nav-link text-white">Inventory</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="inbox.html" class="nav-link text-white">
+                        <a href="inbox.php" class="nav-link text-white">
                             Messages <span class="badge badge-light">8</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="notifications.html" class="nav-link text-white">
+                        <a href="notifications.php" class="nav-link text-white">
                             Notifications <span class="badge badge-light">4</span>
                         </a>
                     </li>
@@ -58,7 +58,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="../help">Help</a>
-                        <a class="dropdown-item active" href="settings.html">Settings</a>
+                        <a class="dropdown-item active" href="settings.php">Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../index.php">Log out</a>
                     </div>

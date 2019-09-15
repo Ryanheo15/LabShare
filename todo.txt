@@ -1,9 +1,7 @@
 Trivial/Insignificant:
-- Remove app.js file (Scrollspy) because of new Scrollspy implementation that does not require it.
 - Figure out typeahead for forms
 - Bootstrap jumbotron for front page?
 - Delete unnecessary files
-    - helpful-links
     - javascripts?
 - Sass?
 - use include for static html components? (footers, main navbar)
@@ -11,7 +9,6 @@ Trivial/Insignificant:
 
 Should do:
 - Organize php files
-    - have a global php file with functions and variables to import
 - Change code to private later on
 
 Notes for future coding:
