@@ -37,7 +37,7 @@
                     <form action="../../PHP/signup.php" method="post" class="needs-validation" novalidate>
                         <div class="form-group">
                             <label for="institution">Institution</label>
-                            <input type="text" class="form-control" name="institution" value="University of California, San Diego" readonly>
+                            <input type="text" id="institution" class="form-control" name="institution" value="University of California, San Diego" readonly>
                             <small class="form-text text-muted">Currently limited to UCSD students.</small>
                             <div class="invalid-feedback">
                                 Please provide a valid institution.
@@ -46,7 +46,7 @@
 
                         <div class="form-group">
                             <label for="department">Department</label><br>
-                            <input type="text" class="form-control" name="department" placeholder="Biology" autofocus required>
+                            <input type="text" id="department" class="form-control" name="department" placeholder="Biology" autofocus required>
                             <div class="invalid-feedback">
                                 Please provide a valid department.
                             </div>
@@ -54,7 +54,7 @@
 
                         <div class="form-group">
                             <label for="division">Division</label>
-                            <input type="text" class="form-control" name="division" placeholder="Neurobiology" required>
+                            <input type="text" id="division" class="form-control" name="division" placeholder="Neurobiology" required>
                             <div class="invalid-feedback">
                                 Please provide a valid division.
                             </div>
@@ -62,7 +62,7 @@
 
                         <div class="form-group">
                             <label for="building">Building</label>
-                            <input type="text" class="form-control" name="building" placeholder="Urey Hall" required>
+                            <input type="text" id="building" class="form-control" name="building" placeholder="Urey Hall" required>
                             <div class="invalid-feedback">
                                 Please provide a valid building.
                             </div>
@@ -70,7 +70,7 @@
 
                         <div class="form-group">
                             <label for="notificationLimit">Request Notification Limit Preference</label>
-                            <select class="form-control" name="notificationLimit">
+                            <select class="form-control" id="notificationLimit" name="notificationLimit">
                                 <option>5</option>
                                 <option>10</option>
                                 <option>20</option>
@@ -97,7 +97,7 @@
     </main>
 
     <?php
-        include '../../PHP/includes/db_connection.php';
+        include '../../PHP/includes/global.php';
 
         $email = $_POST['email'] . "@ucsd.edu";
 

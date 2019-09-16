@@ -208,7 +208,7 @@
 
                                     <div class="row">
                                         <p><strong>Division: </strong><span class = "division">Neuroscience</span></p>
-                                        <div class="w-25"></div>
+
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal" id="modalBtn">Edit Profile</button>
                                     </div>
                                 </div>

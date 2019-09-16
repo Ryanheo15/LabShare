@@ -28,18 +28,16 @@
             <div class="row">
                 <div class="col-md-6 offset-3">
 
-
-
                     <p>
                         Create a shared environment in the scientific research field
                         and make research more cost effective.
                     </p>
                     <hr>
 
-                    <form id="regForm" action="research.php" method="post" class="needs-validation" autocomplete="on" novalidate>
+                    <form id="regForm" action="research.php" method="post" class="needs-validation" autocomplete="off" novalidate>
                         <div class="form-group">
                             <label for="firstName">First name</label>
-                            <input type="text" class="form-control" name="firstName" placeholder="John" maxlength="40" autofocus required>
+                            <input type="text" id="firstName" class="form-control" name="firstName" placeholder="John" maxlength="40" autofocus required>
                             <div class="invalid-feedback">
                                 Please provide a valid first name.
                             </div>
@@ -47,7 +45,7 @@
 
                         <div class="form-group">
                             <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" name="lastName" placeholder="Doe" maxlength="40" required>
+                            <input type="text" id="lastName" class="form-control" name="lastName" placeholder="Doe" maxlength="40" required>
                             <div class="invalid-feedback">
                                 Please provide a valid last name.
                             </div>
@@ -56,9 +54,9 @@
                         <div class="form-group">
                             <label for="email">Institution email address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="email" pattern="[a-z0-9._%+-]+" placeholder="jdoe" maxlength="254" required>
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">@ucsd.edu</span>
+                                <input type="text" id="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+" placeholder="jdoe" maxlength="255" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text border-right rounded-right">@ucsd.edu</span>
                                 </div>
                                 <div class="invalid-feedback">
                                     Please provide a valid email address.
@@ -68,25 +66,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label> <!-- FIXME: Encrypt password -->
-                            <input type="password" class="form-control" name="password" pattern=".{6,}" placeholder="hunter2" required>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" name="password" pattern=".{6,}" placeholder="hunter2" required>
                             <div class="invalid-feedback">
                                 Please provide a password with at least six characters.
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" name="agreementCheck" required>
-                                <label class="form-check-label" for="agreementCheck">
-                                    I agree to the
-                                    <a href="../main/terms-of-service.html">Terms of Service</a>
-                                    and acknowledge the
-                                    <a href="../main/privacy-policy.html">Privacy Policy.</a>
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="agreementCheck" required>
+                            <label class="custom-control-label" for="agreementCheck">
+                                I agree to the
+                                <a href="../main/terms-of-service.html">Terms of Service</a>
+                                and acknowledge the
+                                <a href="../main/privacy-policy.html">Privacy Policy.</a>
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
                             </div>
                         </div>
                         <br>
@@ -100,7 +96,7 @@
 
     <?php
         if (isset($_GET['valid']) && $_GET['valid'] == 'false') {
-            echo "<script> setTimeout(function(){ alert('Incorrect email or password'); location.href='index.php';}, 500); </script>";
+            echo "<script> setTimeout(function(){ alert('The email you entered is already taken.'); location.href='index.php';}, 500); </script>";
         }
     ?>
 

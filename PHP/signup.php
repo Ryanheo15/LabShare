@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html>
@@ -59,6 +60,21 @@
                     VALUES ('$fName', '$lName', '$email', '$pass', '$institution', '$dept', '$division', '$building', '$limit')";
 
                     if ($connection->query($user_insert_query) === true) {
+                        $get_id = "SELECT primary_id FROM users WHERE email='$email'";
+                        $get_id_query = mysqli_query($connection, $get_id);
+                        $get_id_array = $get_id_query->fetch_array();
+
+                        $_SESSION['id'] = $get_id_array['primary_id'];
+                        $_SESSION['first_name'] = $fName;
+                        $_SESSION['last_name'] = $lName;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $pass;
+                        $_SESSION['institution'] = $institution;
+                        $_SESSION['department'] = $dept;
+                        $_SESSION['division'] = $division;
+                        $_SESSION['building'] = $building;
+                        $_SESSION['notification_limit'] = $limit;
+
                       echo "<script> location.href='../HTML/user/'; </script>";
                     }
                     else {

@@ -26,43 +26,39 @@
     <!-- Body -->
     <main>
         <!-- Header Section -->
-        <section id="header" class="py-5">
-            <div class="primary-overlay text-white">
+        <section id="header">
+            <div class="primary-overlay jumbotron jumbotron-fluid text-white d-flex align-items-center">
                 <div class="container">
                     <div class="row">
                         <!-- Left: LabShare.net -->
                         <div class="col-lg-6">
-                            <h1 class="display-2 mt-5 pt-5">LabShare.net</h1>
+                            <h1 class="display-2">LabShare.net</h1>
                             <h3 class="mt-2">For scientists to request and share lab related materials locally</h3>
-                            <!--
-                      <button class = "btn btn-lg btn-outline-primary mt-4 text-white">
-                        <a href = "/HTML/index.html">Join For Free</a>
-                      </button>
-                      -->
                             <a class="btn btn-outline-primary btn-lg mt-4 text-white" href="signup/">
                                 Join For Free
                             </a>
                         </div>
 
                         <!-- Right: Login -->
-                        <div class="login-form card-body offset-lg-2 col-lg-4 border border-primary rounded">
-                            <form class="form-signin needs-validation" method="post" action="index.php?valid=false" novalidate>
-                                <h1 class="pb-2">Already a user?</h1>
-                                <div class="form-group">
-                                    <label for="email">Email Address:</label>
-                                    <input type="email" class="form-control" name="email" autofocus required></input>
-                                </div>
+                        <div class="col-lg-4 offset-lg-2">
+                            <div class="card-body border border-primary rounded">
+                                <form class="form-signin needs-validation" method="post" action="index.php?valid=false" novalidate>
+                                    <h1 class="pb-2">Already a user?</h1>
+                                    <div class="form-group">
+                                        <label for="email">Email Address:</label>
+                                        <input type="email" class="form-control" name="email" autofocus required></input>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="password">Password:</label>
-                                    <input type="password" class="form-control" name="password" required></input>
-                                    <small class="form-text"><a class="text-light" href="main/reset-password.html">Forgot your password?</a></small>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" name="password" required></input>
+                                        <small class="form-text"><a class="text-light" href="main/reset-password.html">Forgot your password?</a></small>
+                                    </div>
 
-                                <button type="submit" class="btn btn-primary btn-lg btn-block mt-4" name="login">Login</button>
-                            </form>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-4" name="login">Login</button>
+                                </form>
+                            </div>
                         </div>
-
 
                     </div>
                 </div>
@@ -71,13 +67,14 @@
 
 
         <!-- Main Content -->
-        <section id="body-cards" class="home-page-main mt-4">
+        <section id="body-cards" class="">
             <div class="container">
                 <div class="row">
+
                     <!-- Card One: Services -->
                     <div class="col-4">
                         <div class="card bg-primary home-page-cards">
-                            <div class="card-header bg-primary text-white display-4 text-center">
+                            <div class="card-header bg-primary text-white text-center display-4">
                                 Services
                             </div>
 
@@ -93,35 +90,35 @@
                     <!-- Card Two: Features -->
                     <div class="col-4">
                         <div class="card bg-secondary home-page-cards">
-                            <div class="card-header bg-secondary text-white display-4 text-center">
+                            <div class="card-header bg-secondary text-white text-center display-4">
                                 Features
                             </div>
 
                             <div class="card-body text-white">
 
-                                <div class="d-flex">
-                                    <div class="p-4 align-self-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-4">
                                         <i class="fas fa-check fa-2x"></i>
                                     </div>
-                                    <div class="p-4 align-self-end ">
+                                    <div class="p-4">
                                         Post and request your lab needs.
                                     </div>
                                 </div>
 
-                                <div class="d-flex">
-                                    <div class="p-4 align-self-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-4">
                                         <i class="fas fa-check fa-2x"></i>
                                     </div>
-                                    <div class="p-4 align-self-end">
+                                    <div class="p-4">
                                         Broadcast to local researchers across campus.
                                     </div>
                                 </div>
 
-                                <div class="d-flex">
-                                    <div class="p-4 align-self-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-4">
                                         <i class="fas fa-check fa-2x"></i>
                                     </div>
-                                    <div class="p-4 align-self-end">
+                                    <div class="p-4">
                                         Keep track of your reagent inventory online.
                                     </div>
                                 </div>
@@ -133,35 +130,35 @@
                     <!-- Card Three: Benefits -->
                     <div class="col-4">
                         <div class="card bg-primary home-page-cards">
-                            <div class="card-header bg-primary text-white display-4 text-center">
+                            <div class="card-header bg-primary text-white text-center display-4">
                                 Benefits
                             </div>
 
                             <div class="card-body">
 
-                                <div class="d-flex">
-                                    <div class="p-4 align-self-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-4">
                                         <i class="fas fa-check fa-2x"></i>
                                     </div>
-                                    <div class="p-4 align-self-end">
+                                    <div class="p-4">
                                         Save money by borrowing small aliquot for pilot.
                                     </div>
                                 </div>
 
-                                <div class="d-flex">
-                                    <div class="p-4 align-self-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-4">
                                         <i class="fas fa-check fa-2x"></i>
                                     </div>
-                                    <div class="p-4 align-self-end">
+                                    <div class="p-4">
                                         Have a backup plan for delayed deliveries.
                                     </div>
                                 </div>
 
-                                <div class="d-flex">
-                                    <div class="p-4 align-self-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="p-4">
                                         <i class="fas fa-check fa-2x"></i>
                                     </div>
-                                    <div class="p-4 align-self-end">
+                                    <div class="p-4">
                                         Find your desired reagents quickly.
                                     </div>
                                 </div>
@@ -169,6 +166,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -178,26 +176,27 @@
     <footer id="footer" class="my-4">
         <div class="container-fluid">
             <hr>
-            <div class="row">
-                <div class="col">
-                    <ul id="footer-links" class="list-inline">
-                        <li><a href="main/about.html">About us</a></li> |
-                        <li><a href="main/terms-of-service.html">Terms</a></li> |
-                        <li><a href="main/privacy-policy.html">Privacy</a></li> |
-                        <li><a href="help/">Help Center</a></li>
-                    </ul>
+            <div class="row justify-content-between">
+                <div class="col-auto">
+                    <div class="d-flex flex-row">
+                        <a class="px-2 text-dark" href="main/about.html">About us</a> |
+                        <a class="px-2 text-dark" href="main/terms-of-service.html">Terms</a> |
+                        <a class="px-2 text-dark" href="main/privacy-policy.html">Privacy</a> |
+                        <a class="px-2 text-dark" href="help/">Help Center</a>
+                    </div>
                 </div>
 
-                <div class="col">
-                    <p class="text-right">© LabShare 2019. All rights reserved.</p>
+                <div class="col-auto">
+                    <p>© LabShare 2019. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Login Validation -->
     <?php
         if (isset($_GET['valid']) && $_GET['valid'] == 'false') {
-            include '../PHP/db_connection.php';
+            include '../PHP/includes/global.php';
 
             $pass = $_POST['password'];
             $email = $_POST['email'];
@@ -245,12 +244,6 @@
                 }
             }
         }
-        /*
-        if ($_POST['username'] == 'admin@labshare.net' && $_POST['password'] == 'password')
-        {
-          echo "<script> location.href='../HTML/admin/'; </script>";
-        }
-        */
     ?>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

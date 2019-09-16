@@ -68,44 +68,26 @@ body {
 /* ---------------------------------------------------
     HOME PAGE: HEADER
 ----------------------------------------------------- */
-
 #header {
-    position: relative;
     background-image: url("../Resources/blur-bottle-chemistry-248152.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    min-height: 600px;
 }
 
 #header .primary-overlay {
     background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    min-height: 600px;
 }
 
 .help-header {
     min-height: 400px !important;
 }
 
-/* Login Form for Home Page */
-.login-form {
-    margin-top: 100px !important;
-}
-
 /* Cards from Home Page */
 .home-page-cards {
     height: 500px;
-}
-
-/* Home Page Main */
-.home-page-main {
-    margin-top: 100px !important;
-    margin-bottom: 100px;
 }
 
 /* ---------------------------------------------------

@@ -40,24 +40,10 @@
 
     <main>
         <div class="container">
-            <h1 class="text-info">Encrypt Tool</h1>
-            <h3 class="text-danger">Enter text to encrypt:</h3>
-            <?php
-                include '../includes/global.php';
-
-                echo
-                "<form method='get'>
-                    <input type='text' name='text'>
-                    <input type='submit'>
-                </form>";
-
-                echo "<h3 class='text-success'>Encrypted Text:</h3>";
-
-                if (!isset($_GET['text'])) {
-                    $_GET['text'] = '';
-                }
-                echo encrypt($_GET['text']);
-            ?>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            </div>
         </div>
     </main>
 </body>

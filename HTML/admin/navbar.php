@@ -46,6 +46,7 @@
 </nav>
 
 <script>
+    // Set active formatting depending on page
     var url = window.location.pathname;
     var slashIndex = url.lastIndexOf('/');
     var dotIndex = url.lastIndexOf('.');
@@ -58,4 +59,10 @@
     } else if (page == 'settings') {
         document.getElementById(page).setAttribute("class", "dropdown-item active")
     }
+
+    // Toggle Sidebar Functionality
+    var button = document.getElementById('sidebarCollapse');
+    var sidebar = document.getElementById('sidebar');
+
+    button.addEventListener('click', function() {sidebar.classList.toggle('active');});
 </script>
