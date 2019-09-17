@@ -18,6 +18,10 @@ body {
     content: url("../Resources/blank-profile-picture-973460_640.png");
 }
 
+.profile-pic {
+    border-radius: 20px;
+}
+
 .helpful-links a {
     color: #007bff;
 }

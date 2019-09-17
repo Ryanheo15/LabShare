@@ -52,12 +52,14 @@
     var dotIndex = url.lastIndexOf('.');
     var page = url.substring(slashIndex + 1, dotIndex);
 
-    document.getElementById(page).setAttribute("class", "active")
 
     if (url.endsWith('/') || page == 'index') {
         document.getElementById("home").setAttribute("class", "active")
     } else if (page == 'settings') {
         document.getElementById(page).setAttribute("class", "dropdown-item active")
+    }
+    else {
+        document.getElementById(page).setAttribute("class", "active")
     }
 
     // Toggle Sidebar Functionality

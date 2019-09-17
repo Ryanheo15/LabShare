@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -25,58 +26,71 @@
             <?php include 'navbar.php'?>
 
             <!-- Body -->
-            <div class="container">
-                <h1 id="profile">Profile</h1>
+            <main>
+                <div class="row">
+                    <div class="col-4">
+                        <h1 id="profile">Profile</h1>
 
-                <!-- Card One: Profile -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card w-50">
+                        <!-- Card One: Profile -->
+                        <div class="card profile-card">
                             <div class="first card-header bg-dark text-white">
                                 Profile
                             </div>
                             <div class="card-body">
                                 <div class="container">
-                                    <div class="d-flex">
-                                        <div class="col-7">
-                                            <div class="prof-pic img-fluid"></div>
+                                    <div class="row justify-content-between">
+                                        <div class="col-5 ml-2">
+                                            <img src="../../Resources/blank-profile-picture-973460_640.png" alt="Profile Picture" class="img-fluid rounded-lg profile-pic">
                                         </div>
 
-                                        <div class="col-8 align">
-                                            <div class="align-self-end">John Smith</div>
-                                            <div class="align-self-end">jsmith@ucsd.edu</div>
-                                            <div class="align-self-end text-info">LabShare Moderator</div>
+                                        <div class="col-auto">
+                                            <div class="row name">John Doe</div>
+                                            <div class="row email">jdoe@ucsd.edu</div>
+                                            <div class="row text-info">LabShare Admin</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <strong>Institution:</strong>
+                                            <span class="institution"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <strong>Department:</strong>
+                                            <span class="department"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <strong>Division:</strong>
+                                            <span class="division"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-between">
+                                        <div class="col align-self-center">
+                                            <strong>Building:</strong>
+                                            <span class="building"></span>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal" id="modalBtn">Edit Profile</button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="container mt-3">
-                                    <div class="row">
-                                        <p><strong>Institution: </strong>UCSD</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <p><strong>Building: </strong>Urey Hall</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <p><strong>Department: </strong>Biology</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <p><strong>Division: </strong>Neuroscience</p>
-                                        <div class="w-25"></div>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal" id="modalBtn">Edit Profile</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+                        <!-- END: Profile Card -->
+
+                        <hr>
                     </div>
                 </div>
-                <!-- END: Profile Card -->
-
-                <hr>
-            </div>
+            </main>
 
         </div>
     </div>
@@ -135,6 +149,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- PHP include -->
+    <?php include "../../JS/post_user_profile_update.php"; ?>
 </body>
 
 </html>

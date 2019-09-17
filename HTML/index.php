@@ -27,7 +27,7 @@
     <main>
         <!-- Header Section -->
         <section id="header">
-            <div class="primary-overlay jumbotron jumbotron-fluid text-white d-flex align-items-center">
+            <div class="primary-overlay jumbotron jumbotron-fluid d-flex align-items-center text-white">
                 <div class="container">
                     <div class="row">
                         <!-- Left: LabShare.net -->
@@ -67,128 +67,124 @@
 
 
         <!-- Main Content -->
-        <section id="body-cards" class="">
-            <div class="container">
-                <div class="row">
+        <section id="body-cards" class="container">
+            <div class="row">
 
-                    <!-- Card One: Services -->
-                    <div class="col-4">
-                        <div class="card bg-primary home-page-cards">
-                            <div class="card-header bg-primary text-white text-center display-4">
-                                Services
-                            </div>
+                <!-- Card One: Services -->
+                <div class="col-4">
+                    <div class="card bg-primary home-page-cards">
+                        <div class="card-header bg-primary text-white text-center display-4">
+                            Services
+                        </div>
 
-                            <div class="card-body text-justify">
+                        <div class="card-body text-justify">
 
-                                Connect with local researchers from your university to borrow reagents
-                                or materials in small aliquot to save both money and time.
+                            Connect with local researchers from your university to borrow reagents
+                            or materials in small aliquot to save both money and time.
 
-                            </div>
                         </div>
                     </div>
-
-                    <!-- Card Two: Features -->
-                    <div class="col-4">
-                        <div class="card bg-secondary home-page-cards">
-                            <div class="card-header bg-secondary text-white text-center display-4">
-                                Features
-                            </div>
-
-                            <div class="card-body text-white">
-
-                                <div class="d-flex align-items-center">
-                                    <div class="p-4">
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </div>
-                                    <div class="p-4">
-                                        Post and request your lab needs.
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="p-4">
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </div>
-                                    <div class="p-4">
-                                        Broadcast to local researchers across campus.
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="p-4">
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </div>
-                                    <div class="p-4">
-                                        Keep track of your reagent inventory online.
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Three: Benefits -->
-                    <div class="col-4">
-                        <div class="card bg-primary home-page-cards">
-                            <div class="card-header bg-primary text-white text-center display-4">
-                                Benefits
-                            </div>
-
-                            <div class="card-body">
-
-                                <div class="d-flex align-items-center">
-                                    <div class="p-4">
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </div>
-                                    <div class="p-4">
-                                        Save money by borrowing small aliquot for pilot.
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="p-4">
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </div>
-                                    <div class="p-4">
-                                        Have a backup plan for delayed deliveries.
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="p-4">
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </div>
-                                    <div class="p-4">
-                                        Find your desired reagents quickly.
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Card Two: Features -->
+                <div class="col-4">
+                    <div class="card bg-secondary home-page-cards">
+                        <div class="card-header bg-secondary text-white text-center display-4">
+                            Features
+                        </div>
+
+                        <div class="card-body text-white">
+
+                            <div class="d-flex align-items-center">
+                                <div class="p-4">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </div>
+                                <div class="p-4">
+                                    Post and request your lab needs.
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <div class="p-4">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </div>
+                                <div class="p-4">
+                                    Broadcast to local researchers across campus.
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <div class="p-4">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </div>
+                                <div class="p-4">
+                                    Keep track of your reagent inventory online.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Three: Benefits -->
+                <div class="col-4">
+                    <div class="card bg-primary home-page-cards">
+                        <div class="card-header bg-primary text-white text-center display-4">
+                            Benefits
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="d-flex align-items-center">
+                                <div class="p-4">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </div>
+                                <div class="p-4">
+                                    Save money by borrowing small aliquot for pilot.
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <div class="p-4">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </div>
+                                <div class="p-4">
+                                    Have a backup plan for delayed deliveries.
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <div class="p-4">
+                                    <i class="fas fa-check fa-2x"></i>
+                                </div>
+                                <div class="p-4">
+                                    Find your desired reagents quickly.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer id="footer" class="my-4">
-        <div class="container-fluid">
-            <hr>
-            <div class="row justify-content-between">
-                <div class="col-auto">
-                    <div class="d-flex flex-row">
-                        <a class="px-2 text-dark" href="main/about.html">About us</a> |
-                        <a class="px-2 text-dark" href="main/terms-of-service.html">Terms</a> |
-                        <a class="px-2 text-dark" href="main/privacy-policy.html">Privacy</a> |
-                        <a class="px-2 text-dark" href="help/">Help Center</a>
-                    </div>
+    <footer id="footer" class="container-fluid">
+        <hr>
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <div class="d-flex flex-row">
+                    <a class="px-2 text-dark" href="main/about.html">About us</a> |
+                    <a class="px-2 text-dark" href="main/terms-of-service.html">Terms</a> |
+                    <a class="px-2 text-dark" href="main/privacy-policy.html">Privacy</a> |
+                    <a class="px-2 text-dark" href="help/">Help Center</a>
                 </div>
+            </div>
 
-                <div class="col-auto">
-                    <p>© LabShare 2019. All rights reserved.</p>
-                </div>
+            <div class="col-auto">
+                <p>© LabShare 2019. All rights reserved.</p>
             </div>
         </div>
     </footer>
