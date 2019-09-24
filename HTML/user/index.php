@@ -220,8 +220,8 @@
                                             <span class="building"></span>
                                         </div>
 
-                                        <div class="col-auto">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal" id="modalBtn">Edit Profile</button>
+                                        <div class="col-auto pr-0">
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#profileModal" id="modalBtn">Edit Profile</button>
                                         </div>
                                     </div>
                                 </div>
