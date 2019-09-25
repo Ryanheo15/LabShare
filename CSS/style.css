@@ -2,7 +2,6 @@
 
 body {
     font-family: 'Roboto Slab', serif;
-    margin: 0;
     padding: 0;
 }
 
@@ -67,6 +66,14 @@ body {
 
 .requests {
     padding-bottom: -10px;
+}
+
+/* ---------------------------------------------------
+    USER INVENTORY
+----------------------------------------------------- */
+
+.pagination > li, th {
+    cursor: pointer;
 }
 
 /* ---------------------------------------------------
