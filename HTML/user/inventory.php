@@ -178,7 +178,7 @@
                                 <div class="form-row">
                                     <div class="form-group col">
                                         <label for="size" class="col-form-label">Size:</label>
-                                        <input type="number" class="form-control" id="size" name="size" min="0" placeholder="0.25" required>
+                                        <input type="number" class="form-control" id="size" name="size" min="0" step="0.001" placeholder="0.25" required>
                                     </div>
                                     <div class="form-group col">
                                         <label for="unit" class="col-form-label">Unit:</label>
@@ -292,7 +292,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../../JS/validateForm.js"></script>
 
-    <?php include '../../JS/inventory.php' ?>
+    <?php include '../../JS/inventory.php'; ?>
 </body>
 
 </html>

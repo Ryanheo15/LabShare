@@ -18,11 +18,11 @@
     let table_body = document.getElementsByTagName("tbody");
     let table_size = document.querySelector("#table_size");
 
-    var items_count = <?php echo $item_count; ?>;
+    var items_count = <?php echo $item_count; ?> ;
     var data = [];
 
     for (let i = 0; i < items_count; i++) {
-        data[i] = <?php echo json_encode($items); ?>[i];
+        data[i] = <?php echo json_encode($items); ?> [i];
     }
 
     let current_row = "";
@@ -85,33 +85,22 @@
         $("#loading-modal").modal("show");
         clear_table();
 
+        let startIndex = (current_page_num - 1) * ROWS_PER_PAGE;
+        let endIndexBound = current_page_num * ROWS_PER_PAGE;
+        let is_last_page = data.length < endIndexBound;
+
         var tr;
-        if (data.length - (current_page_num - 1) * 10 < data.length) {
-            for (let i = (current_page_num - 1) * 10; i < data.length; i++) {
-                tr = $('<tr/>');
-                tr.append("<td>" + data[i]['name'] + "</td>");
-                tr.append("<td>" + data[i]['state'] + "</td>");
-                tr.append("<td>" + data[i]['size'] + " " + data[i]['unit'] + "</td>");
-                tr.append("<td>" + data[i]['quantity'] + "</td>");
-                tr.append("<td>" + data[i]['manufacturer'] + "</td>");
-                tr.append("<td>" + data[i]['cas_number'] + "</td>");
-                tr.append("<td>" + data[i]['comments'] + "</td>");
+        for (let i = startIndex; i < (is_last_page ? data.length : endIndexBound); i++) {
+            tr = $('<tr/>');
+            tr.append("<td>" + data[i]['name'] + "</td>");
+            tr.append("<td>" + data[i]['state'] + "</td>");
+            tr.append("<td>" + data[i]['size'] + " " + data[i]['unit'] + "</td>");
+            tr.append("<td>" + data[i]['quantity'] + "</td>");
+            tr.append("<td>" + data[i]['manufacturer'] + "</td>");
+            tr.append("<td>" + data[i]['cas_number'] + "</td>");
+            tr.append("<td>" + data[i]['comments'] + "</td>");
 
-                $('table').append(tr);
-            }
-        } else {
-            for (let i = (current_page_num - 1) * 10; i < (current_page_num - 1) * 10 + 10; i++) {
-                tr = $('<tr/>');
-                tr.append("<td>" + data[i]['name'] + "</td>");
-                tr.append("<td>" + data[i]['state'] + "</td>");
-                tr.append("<td>" + data[i]['size'] + " " + data[i]['unit'] + "</td>");
-                tr.append("<td>" + data[i]['quantity'] + "</td>");
-                tr.append("<td>" + data[i]['manufacturer'] + "</td>");
-                tr.append("<td>" + data[i]['cas_number'] + "</td>");
-                tr.append("<td>" + data[i]['comments'] + "</td>");
-
-                $('table').append(tr);
-            }
+            $('table').append(tr);
         }
     }
 
