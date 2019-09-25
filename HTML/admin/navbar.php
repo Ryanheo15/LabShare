@@ -28,7 +28,7 @@
                     <div class="dropdown ml-2">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                             <img id="nav-pic" width="30" height="30" class="img-fluid rounded" src="../../Resources/blank-profile-picture-973460_640.png">
-                            John Smith
+                            <?php session_start(); echo $_SESSION['first_name'] . '  ' . $_SESSION['last_name']; ?>
                             &emsp;
                         </button>
                         <div class="dropdown-menu drowpdown-menu-right">
