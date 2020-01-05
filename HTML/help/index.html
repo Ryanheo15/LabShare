@@ -1,100 +1,108 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+          integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/home.css">
 
     <title>Help Center · LabShare</title>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+    <div class="container">
+        <a href="../index.php" class="navbar-brand">LabShare</a>
+        <i class="fas fa-flask fa-2x text-info"></i>
+    </div>
+</nav>
+
+<!-- Header Section -->
+<section id="header" style="height: 300px;">
+    <div class="primary-overlay jumbotron jumbotron-fluid d-flex align-items-center text-white" style="height: 300px;">
         <div class="container">
-            <a href="../index.php" class="navbar-brand">LabShare</a>
-            <i class="fas fa-flask fa-2x text-info"></i>
-        </div>
-    </nav>
-
-    <!-- Header Section -->
-    <section id="header" style="height: 300px;">
-        <div class="primary-overlay jumbotron jumbotron-fluid d-flex align-items-center text-white" style="height: 300px;">
-            <div class="container">
-                <div class="row">
-                    <!-- Left: LabShare.net -->
-                    <div class="col-lg-6">
-                        <h3 class="display-2">Need help?</h3>
-                        <input class="form-control mt-4" type="search" placeholder="Search topics, reagents...">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Body -->
-    <main id="body" class="my-4">
-        <div class="container">
-
-            <section class="my-2">
-                <h2>Search by topic</h2>
-                <hr>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Getting Started</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Using LabShare</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Setting Preferences</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Safety</button>
-            </section>
-
-            <section class="my-2">
-                <h2>Popular articles</h2>
-                <hr>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Getting Started</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Using LabShare</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Setting Preferences</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Safety</button>
-            </section>
-
-            <section class="my-2">
-                <h2>Browse by article</h2>
-                <hr>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Getting Started</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Using LabShare</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Setting Preferences</button>
-                <button type="button" class="btn btn-primary btn-lg mx-3">Safety</button>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer id="footer" class="my-4">
-        <div class="container-fluid">
-            <hr>
             <div class="row">
-                <div class="col">
-                    <ul id="footer-links" class="list-inline">
-                        <li><a href="../main/about.html">About us</a></li> |
-                        <li><a href="../main/terms-of-service.html">Terms</a></li> |
-                        <li><a href="../main/privacy-policy.html">Privacy</a></li> |
-                        <li><a href="index.html">Help Center</a></li>
-                    </ul>
+                <!-- Left: LabShare.net -->
+                <div class="col-lg-6">
+                    <h3 class="display-2"><label for="search">Need help?</label></h3>
+                    <input type="search" id="search" class="form-control mt-4" placeholder="Search topics, reagents...">
                 </div>
 
-                <div class="col">
-                    <p class="text-right">© LabShare 2019. All rights reserved.</p>
-                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Body -->
+<main id="body" class="my-4">
+    <div class="container">
+
+        <section class="my-2">
+            <h2>Search by topic</h2>
+            <hr>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Getting Started</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Using LabShare</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Setting Preferences</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Safety</button>
+        </section>
+
+        <section class="my-2">
+            <h2>Popular articles</h2>
+            <hr>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Getting Started</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Using LabShare</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Setting Preferences</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Safety</button>
+        </section>
+
+        <section class="my-2">
+            <h2>Browse by article</h2>
+            <hr>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Getting Started</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Using LabShare</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Setting Preferences</button>
+            <button type="button" class="btn btn-primary btn-lg mx-3">Safety</button>
+        </section>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer id="footer" class="container-fluid">
+    <hr>
+    <div class="row justify-content-between">
+        <div class="col-auto">
+            <div class="d-flex flex-row">
+                <a class="px-2 text-dark" href="main/about.html">About us</a> |
+                <a class="px-2 text-dark" href="main/terms-of-service.html">Terms</a> |
+                <a class="px-2 text-dark" href="main/privacy-policy.html">Privacy</a> |
+                <a class="px-2 text-dark" href="help/">Help Center</a>
+            </div>
+        </div>
+
+        <div class="col-auto">
+            <p>© LabShare 2019. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
