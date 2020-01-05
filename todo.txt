@@ -15,4 +15,4 @@ Should do:
 
 Notes for future coding:
 - Make sure paths are case-sensitive (for bluehost)
-- Keep imports updated
+- Keep imports updated (Bootstrap 4.4.1)
