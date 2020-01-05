@@ -1,7 +1,6 @@
 <?php
-    include '../../PHP/includes/db_connection.php';
-
-    $get_inventory = "SELECT name, state, size, unit, quantity, manufacturer, cas_number, comments, link, user_id FROM inventory";
+    $id = $_SESSION['id'];
+    $get_inventory = "SELECT name, state, size, unit, quantity, manufacturer, cas_number, comments, user_id FROM inventory WHERE user_id = $id";
     $inventory_query = mysqli_query($connection, $get_inventory);
     $item_count = mysqli_num_rows($inventory_query);
 
@@ -10,19 +9,20 @@
 
 <script>
     // Variables
-    const ROWS_PER_PAGE = 10;
+    var ROWS_PER_PAGE = 10;
 
     let table = document.querySelector("#table");
     let next = document.querySelector("#next");
     let prev = document.querySelector("#prev");
     let pagination = document.querySelector(".pagination");
     let table_body = document.getElementsByTagName("tbody");
+    let table_size = document.querySelector("#table_size");
 
-    var items_count = <?php echo $item_count; ?>;
+    var items_count = <?php echo $item_count; ?> ;
     var data = [];
 
     for (let i = 0; i < items_count; i++) {
-        data[i] = <?php echo json_encode($items); ?>[i];
+        data[i] = <?php echo json_encode($items); ?> [i];
     }
 
     let current_row = "";
@@ -85,41 +85,34 @@
         $("#loading-modal").modal("show");
         clear_table();
 
+        let startIndex = (current_page_num - 1) * ROWS_PER_PAGE;
+        let endIndexBound = current_page_num * ROWS_PER_PAGE;
+        let is_last_page = data.length < endIndexBound;
+
         var tr;
-        if (data.length - (current_page_num - 1) * 10 < data.length) {
-            for (let i = (current_page_num - 1) * 10; i < data.length; i++) {
-                tr = $('<tr/>');
-                tr.append("<td>" + data[i]['name'] + "</td>");
-                tr.append("<td>" + data[i]['state'] + "</td>");
-                tr.append("<td>" + data[i]['size'] + " " + data[i]['unit'] + "</td>");
-                tr.append("<td>" + data[i]['quantity'] + "</td>");
-                tr.append("<td>" + data[i]['manufacturer'] + "</td>");
-                tr.append("<td>" + data[i]['cas_number'] + "</td>");
-                tr.append("<td>" + data[i]['comments'] + "</td>");
-                tr.append("<td>" + "<a href='" + data[i]['link'] + "'>Link</a>" + "</td>");
+        for (let i = startIndex; i < (is_last_page ? data.length : endIndexBound); i++) {
+            tr = $('<tr/>');
+            tr.append("<td>" + data[i]['name'] + "</td>");
+            tr.append("<td>" + data[i]['state'] + "</td>");
+            tr.append("<td>" + data[i]['size'] + " " + data[i]['unit'] + "</td>");
+            tr.append("<td>" + data[i]['quantity'] + "</td>");
+            tr.append("<td>" + data[i]['manufacturer'] + "</td>");
+            tr.append("<td>" + data[i]['cas_number'] + "</td>");
+            tr.append("<td>" + data[i]['comments'] + "</td>");
 
-                $('table').append(tr);
-            }
-        } else {
-            for (let i = (current_page_num - 1) * 10; i < (current_page_num - 1) * 10 + 10; i++) {
-                tr = $('<tr/>');
-                tr.append("<td>" + data[i]['name'] + "</td>");
-                tr.append("<td>" + data[i]['state'] + "</td>");
-                tr.append("<td>" + data[i]['size'] + " " + data[i]['unit'] + "</td>");
-                tr.append("<td>" + data[i]['quantity'] + "</td>");
-                tr.append("<td>" + data[i]['manufacturer'] + "</td>");
-                tr.append("<td>" + data[i]['cas_number'] + "</td>");
-                tr.append("<td>" + data[i]['comments'] + "</td>");
-                tr.append("<td>" + "<a href='" + data[i]['link'] + "'>Link</a>" + "</td>");
-
-                $('table').append(tr);
-            }
+            $('table').append(tr);
         }
     }
 
     // Event Listeners
     window.addEventListener("load", loadTable);
     window.addEventListener("load", fill_page_numbers);
+
+    table_size.addEventListener("change", (e) => {
+        ROWS_PER_PAGE = table_size.value;
+        loadTable();
+        fill_page_numbers();
+    });
 
     prev.addEventListener("click", (e) => {
         if (current_page_num > 1) {

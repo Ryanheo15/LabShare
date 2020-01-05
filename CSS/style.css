@@ -2,7 +2,6 @@
 
 body {
     font-family: 'Roboto Slab', serif;
-    margin: 0;
     padding: 0;
 }
 
@@ -46,6 +45,7 @@ body {
 .hover-item:hover,
 .hover-item:active {
     background-color: #007bff;
+    cursor: -webkit-grab;
     cursor: grab;
 }
 
@@ -69,6 +69,38 @@ body {
 }
 
 /* ---------------------------------------------------
+    USER INVENTORY
+----------------------------------------------------- */
+
+.pagination > li, th {
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------
+    HOME PAGE: HEADER
+----------------------------------------------------- */
+#header {
+    background-image: url("../Resources/blur-bottle-chemistry-248152.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#header .primary-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.help-header {
+    min-height: 400px !important;
+}
+
+/* Cards from Home Page */
+.home-page-cards {
+    height: 500px;
+}
+
+/* ---------------------------------------------------
     FOOTER
 ----------------------------------------------------- */
 
@@ -80,4 +112,5 @@ body {
     color: inherit;
 }
 
+/* index */
 /* MEDIA QUERIES */

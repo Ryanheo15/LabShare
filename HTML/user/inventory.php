@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html>
@@ -75,6 +76,27 @@
             <h2>Inventory</h2>
             <hr>
 
+            <!-- Taskbar -->
+            <div class="container bg-secondary py-2 mb-2">
+                <div class="row">
+                    <div class="col-auto">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-control" type="text" placeholder="Search">
+                    </div>
+                    <div class="col">
+                        <div class="form-group row mb-0">
+                            <label for="table_size" class="col-auto col-form-label text-white pr-0">Table Size:</label>
+                            <div class="col-4 pl-1">
+                                <input type="number" class="form-control p-1 w-25" id="table_size" value=10>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <!-- Table -->
             <div id="table">
                 <table class="table table-light table-striped table-bordered">
@@ -87,8 +109,7 @@
                             <th>Quantity<i class="fas fa-sort ml-2"></i></th>
                             <th>Manufacturer<i class="fas fa-sort ml-2"></i></th>
                             <th>CAS Number<i class="fas fa-sort ml-2"></i></th>
-                            <th>Comments<i class="fas fa-sort ml-2"></i></th>
-                            <th>Link</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
 
@@ -129,9 +150,70 @@
                 </div>
             </div>
 
-            <!-- Request Modal -->
+            <!-- Add Item Modal -->
+            <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addItemModalLabel">Add Inventory Item</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="inventory.php?add=true" method="post" class="needs-validation" novalidate>
+                            <div class="modal-body">
 
-            <div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="RequestModalLabel" aria-hidden="true">
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label">Name:</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Hydrogen Dioxide" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state" class="col-form-label">State:</label>
+                                    <select class="custom-select" id="state" name="state">
+                                        <option value="Liquid">Liquid</option>
+                                        <option value="Solid">Solid</option>
+                                        <option value="Gas">Gas</option>
+                                    </select>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="size" class="col-form-label">Size:</label>
+                                        <input type="number" class="form-control" id="size" name="size" min="0" step="0.001" placeholder="0.25" required>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="unit" class="col-form-label">Unit:</label>
+                                        <input type="text" class="form-control" id="unit" name="unit" placeholder="Liters (L)" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity" class="col-form-label">Quantity:</label>
+                                    <input type="number" class="form-control" id="quantity" name="quantity" min="0" placeholder="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="manufacturer" class="col-form-label">Manufacturer:</label>
+                                    <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Fisher Scientific">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cas_number" class="col-form-label">CAS Number:</label>
+                                    <input type="text" class="form-control" id="cas_number" name="cas_number" placeholder="7647-01-0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="comments" class="col-form-label">Comments:</label>
+                                    <textarea class="form-control" id="comments" name="comments" rows="4" placeholder="33-38% Purity"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Request Modal -->
+            <div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="requestModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="form">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -176,11 +258,41 @@
         </div>
     </section>
 
+    <!-- Add Item to Database -->
+    <?php
+        include '../../PHP/includes/db_connection.php';
+
+        if (isset($_GET['add']))
+        {
+            $name = $_POST['name'];
+            $state = $_POST['state'];
+            $size = $_POST['size'];
+            $unit = $_POST['unit'];
+            $quantity = $_POST['quantity'];
+            $manufacturer = $_POST['manufacturer'];
+            $cas_number = $_POST['cas_number'];
+            $comments = $_POST['comments'];
+            $user_id = $_SESSION['id'];
+
+            $item_insert_query = "INSERT INTO inventory(name, state, size, unit, quantity, manufacturer, cas_number, comments, user_id)
+            VALUES ('$name', '$state', '$size', '$unit', '$quantity', '$manufacturer', '$cas_number', '$comments', '$user_id')";
+
+            if($connection->query($item_insert_query) === TRUE) {
+                echo "<script> location.href='inventory.php'; </script>";
+            }
+            else {
+                echo "Error: " . $item_insert_query . "<br>" . $connection->error;
+            }
+
+        }
+    ?>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../JS/validateForm.js"></script>
 
-    <?php include '../../JS/inventory.php' ?>
+    <?php include '../../JS/inventory.php'; ?>
 </body>
 
 </html>

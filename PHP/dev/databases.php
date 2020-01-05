@@ -59,29 +59,26 @@
                 </thead>
                 <tbody>
                     <?php
-        session_start();
-        include '../includes/db_connection.php';
+                        session_start();
+                        include '../includes/db_connection.php';
 
-        $sql = "SELECT * FROM users";
-        $result = mysqli_query($connection, $sql);
-        $resultCheck = mysqli_num_rows($result);
+                        $get_users_db = "SELECT * FROM users";
+                        $get_users_query = $connection->query($get_users_db);
 
-        if ($resultCheck > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<tr>';
-                foreach ($row as $col) {
-                    echo '<td>' . $col . '</td>';
-                }
-                echo '</tr>';
-            }
-        }
+                        while ($row = $get_users_query->fetch_assoc()) {
+                            echo '<tr>';
+                            foreach ($row as $col) {
+                                echo '<td>' . $col . '</td>';
+                            }
+                            echo '</tr>';
+                        }
 
-        echo '<tr>';
-        foreach ($_SESSION as $col) {
-            echo '<td><b>' . $col . '</b></td>';
-        }
-        echo '</tr>';
-    ?>
+                        echo '<tr>';
+                        foreach ($_SESSION as $col) {
+                            echo '<td><b>' . $col . '</b></td>';
+                        }
+                        echo '</tr>';
+                    ?>
                 </tbody>
             </table>
 

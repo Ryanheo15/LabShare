@@ -46,7 +46,7 @@
 
                     //Type conversion
                     if ($limit == "Unlimited") {
-                      $limit = 100;
+                        $limit = 100;
                     }
 
                     //Adding security
@@ -75,10 +75,10 @@
                         $_SESSION['building'] = $building;
                         $_SESSION['notification_limit'] = $limit;
 
-                      echo "<script> location.href='../HTML/user/'; </script>";
+                        echo "<script> location.href='../HTML/user/'; </script>";
                     }
                     else {
-                      echo "Error: " . $user_insert_query . "<br>" . $connection->error;
+                        echo "Error: " . $user_insert_query . "<br>" . $connection->error;
                     }
 
                     $connection->close();
