@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+          integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <title>Settings · LabShare</title>
+</head>
+
+<body>
+<!-- FIXME: Fix active nav bar links and collapsible button later -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+    <div class="container">
+        <a href="index.html" class="navbar-brand text-white">LabShare</a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="inventory.html" class="nav-link text-white">Inventory</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="inbox.html" class="nav-link text-white">
+                        Messages <span class="badge badge-light">8</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="notifications.html" class="nav-link text-white">
+                        Notifications <span class="badge badge-light">4</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Post Button -->
+            <form class="form-inline mx-md-4">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button type="button" class="btn btn-outline-light my-2 my-sm-0 " data-toggle="modal"
+                        data-target="#requestModal">Make A Post
+                </button>
+            </form>
+
+            <!-- Dropdown -->
+            <div class="dropdown ml-md-2">
+                <button class="btn btn-outline-secondary text-light dropdown-toggle" type="button"
+                        data-toggle="dropdown">
+                    <img id="nav-pic" width="30" height="30" class="img-fluid rounded"
+                         src="../../img/blank-profile-pic.png">
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="../help">Help</a>
+                    <a class="dropdown-item active" href="settings.html">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../index.html">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="my-4">
+    <div class="container">
+        <h2>Settings</h2>
+        <hr>
+
+        <form class="needs-validation" method="post" novalidate>
+            <h3>Change password</h3>
+            <div class="form-group">
+                <label for="old-password">Old password</label>
+                <input id="old-password" type="password" class="form-control" pattern=".{6,}" name="old-password" required>
+                <div class="invalid-feedback">
+                    Please enter your current password.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="new-password">New password</label>
+                <input id="new-password" type="password" class="form-control" pattern=".{6,}" name="new-password" required>
+                <div class="invalid-feedback">
+                    Please provide a password with at least six characters.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary mr-2" name="update-password">Update password</button>
+            <a href="../main/reset-password.html">I forgot my password</a>
+        </form>
+        <hr>
+
+        <form method="post">
+            <h3>Change settings</h3>
+            <div class="form-group">
+                <label for="notificationLimit">Request Notification Limit Preference</label>
+                <select id="notificationLimit" class="form-control" name="notificationLimit">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>Unlimited</option>
+                </select>
+                <small class="form-text text-muted">
+                    Maximum number of request notification emails you want to receive per day.
+                    <br>
+                    <b>Note:</b> The more requests you receive, the more people receive your requests when you need
+                    help.
+                </small>
+            </div>
+
+            <button type="submit" class="btn btn-success" name="update-settings">Update settings</button>
+        </form>
+        <hr>
+
+        <form method="post">
+            <h3 class="text-danger">Delete account</h3>
+            <div class="form-group">
+                <label>Once you delete your account, there is no going back. Please be certain.</label>
+                <br>
+                <button type="submit" class="btn btn-danger">Delete account</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<!-- Request Modal Section -->
+<div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="requestModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="text-center text-dark modal-title" id="requestModalLabel">Make A Post</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle mb-2" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Post Type
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="nav flex-column nav-pills" role="tablist">
+                            <a class="nav-link active" data-toggle="pill" href="#request-form" role="tab">Request</a>
+                            <a class="nav-link" data-toggle="pill" href="#question-form" role="tab">Question</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="request-form" role="tabpanel">
+                        <form class="request-form" action="" method="post">
+
+                            <div class="form-group">
+                                <label for="item" class="text-dark">Item Name:</label>
+                                <input type="text" id="item" class="form-control" placeholder="ex: John">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location" class="text-dark">Location:</label>
+                                <input type="text" id="location" class="form-control" placeholder="ex: Myer Hall">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date" class="text-dark">Date:</label>
+                                <input type="text" id="date" class="form-control" placeholder="05-06-2019">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="request" class="text-dark">Request:</label>
+                                <textarea id="request" class="form-control" rows="6">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="question-form" role="tabpanel">
+                        <form class="question-form" action="" method="post">
+
+                            <div class="form-group">
+                                <label for="title" class="text-dark">Title:</label>
+                                <input type="text" id="title" class="form-control"
+                                       placeholder="ex: Where are the best labs on campus?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description" class="text-dark">Description:</label>
+                                <textarea id="description" class="form-control" rows="6">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- jQuery & Popper.js & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<script src="../../js/validate-form.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+body {
+    font-family: 'Roboto Slab', serif;
+    padding: 0;
+}
+
+/* ---------------------------------------------------
+    USER HOME PAGE
+----------------------------------------------------- */
+
+.prof-pic {
+    border-radius: 20px;
+}
+
+.profile-pic {
+    border-radius: 20px;
+}
+
+.helpful-links a {
+    color: #007bff;
+}
+
+.helpful-links a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.card {
+    width: 100%;
+}
+
+.list-group-item a {
+    text-decoration: none;
+}
+
+.hover-item:hover,
+.hover-item:active {
+    background-color: #007bff;
+    cursor: grab;
+}
+
+.list-group-item:hover a,
+.list-group-item:active a {
+    color: white;
+    text-decoration: none;
+}
+
+.date {
+    width: 100%;
+}
+
+.requests {
+    padding-bottom: -10px;
+}
+
+/* ---------------------------------------------------
+    USER INVENTORY
+----------------------------------------------------- */
+
+.pagination > li, th {
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+
+#footer-links li {
+    display: inline-block;
+}
+
+#footer-links li a {
+    color: inherit;
+}
+
+/* index */
+
+/* ---------------------------------------------------
+    MEDIA QUERIES
+----------------------------------------------------- */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}
