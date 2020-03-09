@@ -5,9 +5,9 @@ let request_modal = document.querySelector("#requestModal");
 let request_form = document.querySelector(".request-form");
 
 //FUNCTIONS
-let retrieve_inputs = function(e){
-  e.preventDefault();
-  console.log(e.target.value);
+let retrieve_inputs = function (e) {
+    e.preventDefault();
+    console.log(e.target.value);
 };
 
 //EVENT LISTENERS

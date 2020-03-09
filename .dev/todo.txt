@@ -1,0 +1,30 @@
+High Priority:
+- Local Bootstrap/jQuery/Popper.js by npm [Adory]
+- Data encryption upon account creation
+- Inventory [Adory]
+    - search bar
+    - edit / delete buttons
+    - sorting
+- Revamped posts page [Ryan]
+    - Color coded posts
+    - New post creation menu w/ diff types of posts
+
+Medium Priority:
+- Change code to private later on
+    - Utilize .dotfiles so express will ignore important folders/files
+- Help page
+- Admin site
+- Email verification
+- Search in Navbar
+- Notifications
+- Messages
+- Settings page
+
+Low Priority:
+- Figure out typeahead for forms
+- Delete unnecessary files
+- Sass?
+- favicon
+
+Notes for future coding:
+- Keep library imports updated (Bootstrap 4.4.1)
