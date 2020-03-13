@@ -1,5 +1,4 @@
 High Priority:
-- Local Bootstrap/jQuery/Popper.js by npm [Adory]
 - Data encryption upon account creation
 - Inventory [Adory]
     - search bar
@@ -26,5 +25,5 @@ Low Priority:
 - Sass?
 - favicon
 
-Notes for future coding:
-- Keep library imports updated (Bootstrap 4.4.1)
+Completed:
+- Local Bootstrap/jQuery/Popper.js by npm [Adory] {3/13}

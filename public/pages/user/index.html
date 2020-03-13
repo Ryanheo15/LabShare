@@ -1,0 +1,445 @@
+<!--
+<?php session_start(); ?>
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../../css/fontawesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <title>Home · LabShare</title>
+</head>
+
+<body>
+
+<!-- FIXME: Fix active nav bar links and collapsible button later -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+    <div class="container">
+        <a href="index.html" class="navbar-brand text-white">LabShare</a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="inventory.html" class="nav-link text-white">Inventory</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="inbox.html" class="nav-link text-white">
+                        Messages <span class="badge badge-light">8</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="notifications.html" class="nav-link text-white">
+                        Notifications <span class="badge badge-light">4</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Post Button -->
+            <form class="form-inline mx-md-4">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button type="button" class="btn btn-outline-light my-2 my-sm-0 " data-toggle="modal"
+                        data-target="#requestModal">Make A Post
+                </button>
+            </form>
+
+            <!-- Dropdown -->
+            <div class="dropdown ml-md-2">
+                <button class="btn btn-outline-secondary text-light dropdown-toggle" type="button"
+                        data-toggle="dropdown">
+                    <img id="nav-pic" width="30" height="30" class="img-fluid rounded"
+                         src="../../img/blank-profile-pic.png">
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="../help">Help</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../index.html">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="my-4">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <!-- Card One: Profile -->
+                <div class="card profile-card">
+                    <div class="first card-header bg-dark text-white">
+                        Profile
+                    </div>
+
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row justify-content-between">
+                                <div class="col-5">
+                                    <img src="../../img/blank-profile-pic.png"
+                                         alt="Profile Picture" class="img-fluid rounded-lg">
+                                </div>
+
+                                <div class="col-auto">
+                                    <span class="d-block name">John Doe</span>
+                                    <span class="d-block email">jdoe@ucsd.edu</span>
+                                    <span class="d-block text-info">LabShare Admin</span>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <strong>Institution:</strong>
+                                    <span class="institution">UCSD</span>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <strong>Department:</strong>
+                                    <span class="department">Biology</span>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <strong>Division:</strong>
+                                    <span class="division">Neurobiology</span>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-between mt-2">
+                                <div class="col-7 align-self-center text-wrap">
+                                    <strong>Building:</strong>
+                                    <span class="building">Bonner Hall</span>
+                                </div>
+
+                                <div class="col-auto align-self-end pr-0">
+                                    <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
+                                            data-target="#profileModal">Edit Profile
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TODO: Make all posts show but allow filtering by type of post -->
+            <!-- CARD TWO: Posts -->
+            <div class="col-12 col-md-8 mt-4 mt-md-0">
+                <div class="card requests">
+                    <div class="card-header bg-dark text-white">
+                        Posts
+                    </div>
+
+                    <!-- Post -->
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row justify-content-between">
+                                    <div class="col-3">
+                                        <img src="../../img/blank-profile-pic.png"
+                                             alt="profile-pic" class="img-fluid rounded-lg">
+                                    </div>
+
+                                    <div class="col-9 col-md-6">
+                                        <p>XXX from Urey Hall</p>
+                                        <p>Does anyone have 5mg of HCl I could borrow?</p>
+                                    </div>
+
+                                    <div class="col-auto ml-auto">
+                                        <p class="date">Date: 05-06-2019</p>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-auto">
+                                        <button class="btn btn-md btn-primary text-white px-4">
+                                            Fulfilled
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row justify-content-between">
+                                    <div class="col-3">
+                                        <img src="../../img/blank-profile-pic.png"
+                                             alt="profile-pic" class="img-fluid rounded-lg">
+                                    </div>
+
+                                    <div class="col-9 col-md-6">
+                                        <p>XXX from Urey Hall</p>
+                                        <p>Does anyone have 5mg of HCl I could borrow?</p>
+                                    </div>
+
+                                    <div class="col-auto ml-auto">
+                                        <p class="date">Date: 05-06-2019</p>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-auto">
+                                        <button class="btn btn-md btn-primary text-white px-4">
+                                            Fulfilled
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row justify-content-between">
+                                    <div class="col-3">
+                                        <img src="../../img/blank-profile-pic.png"
+                                             alt="profile-pic" class="img-fluid rounded-lg">
+                                    </div>
+
+                                    <div class="col-9 col-md-6">
+                                        <p>XXX from Urey Hall</p>
+                                        <p>Does anyone have 5mg of HCl I could borrow?</p>
+                                    </div>
+
+                                    <div class="col-auto ml-auto">
+                                        <p class="date">Date: 05-06-2019</p>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-auto">
+                                        <button class="btn btn-md btn-primary text-white px-4">
+                                            Fulfilled
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row justify-content-between">
+                                    <div class="col-3">
+                                        <img src="../../img/blank-profile-pic.png"
+                                             alt="profile-pic" class="img-fluid rounded-lg">
+                                    </div>
+
+                                    <div class="col-9 col-md-6">
+                                        <p>XXX from Urey Hall</p>
+                                        <p>Does anyone have 5mg of HCl I could borrow?</p>
+                                    </div>
+
+                                    <div class="col-auto ml-auto">
+                                        <p class="date">Date: 05-06-2019</p>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-auto">
+                                        <button class="btn btn-md btn-primary text-white px-4">
+                                            Fulfilled
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<!-- Edit Profile Modal Section -->
+<div class="modal fade" role="dialog" id="profileModal" tabindex=-1 aria-labelledby="ProfileModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog" role="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="text-center text-dark modal-title" id="ProfileModalLabel">Edit Profile</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form class="request-form" action="#" method="post">
+
+                    <div class="form-group">
+                        <label for="name" class="text-dark">Name:</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="institution" class="text-dark">Institution:</label>
+                        <input type="text" id="institution" class="form-control" placeholder="UCSD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="building" class="text-dark">Building:</label>
+                        <input type="text" id="building" class="form-control" placeholder="Urey Hall">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department" class="text-dark">Department:</label>
+                        <input type="text" id="department" class="form-control" placeholder="Biology">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="division" class="text-dark">Division:</label>
+                        <input type="text" id="division" class="form-control" placeholder="Neuroscience">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Request Modal Section -->
+<div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="requestModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="text-center text-dark modal-title" id="requestModalLabel">Make A Post</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle mb-2" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Post Type
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="nav flex-column nav-pills" role="tablist">
+                            <a class="nav-link active" data-toggle="pill" href="#request-form" role="tab">Request</a>
+                            <a class="nav-link" data-toggle="pill" href="#question-form" role="tab">Question</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="request-form" role="tabpanel">
+                        <form class="request-form" action="" method="post">
+
+                            <div class="form-group">
+                                <label for="item" class="text-dark">Item Name:</label>
+                                <input type="text" id="item" class="form-control" placeholder="ex: John">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location" class="text-dark">Location:</label>
+                                <input type="text" id="location" class="form-control" placeholder="ex: Myer Hall">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date" class="text-dark">Date:</label>
+                                <input type="text" id="date" class="form-control" placeholder="05-06-2019">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="request" class="text-dark">Request:</label>
+                                <textarea id="request" class="form-control" rows="6">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="question-form" role="tabpanel">
+                        <form class="question-form" action="" method="post">
+
+                            <div class="form-group">
+                                <label for="title" class="text-dark">Title:</label>
+                                <input type="text" id="title" class="form-control"
+                                       placeholder="ex: Where are the best labs on campus?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description" class="text-dark">Description:</label>
+                                <textarea id="description" class="form-control" rows="6">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- jQuery & Popper.js & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- TODO: JS to add a new post -->
+<script src="../../js/add-post.js"></script>
+
+<!-- Update Profile Info from Session Variables -->
+<!--
+<?php include "../../JS/post_user_profile_update.php"; ?>
+-->
+</body>
+
+</html>

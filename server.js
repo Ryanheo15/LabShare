@@ -12,11 +12,12 @@ const express = require('express');
 const app = express();
 const port = 3000; // Port 3000 -> localhost:3000
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/public")); // url path begins at /public
 app.use(bodyParser.urlencoded({extended: false}));
 
+// Login Request
 app.post('/login', function (req, res) {
-    console.log('POST request received at /login');
+    console.log('Login request received at ' + new Date(Date.now()).toString());
 
     con.query(`SELECT * FROM users WHERE email = '${req.body.email}' AND password = '${req.body.password}'`,
         function (err, result, fields) {
@@ -30,4 +31,4 @@ app.post('/login', function (req, res) {
         });
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Website listening on port ${port}!`));

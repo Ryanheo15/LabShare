@@ -1,0 +1,371 @@
+<!--
+<?php session_start(); ?>
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../../css/fontawesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <title>Inventory · LabShare</title>
+</head>
+
+<body>
+<!-- FIXME: Fix active nav bar links and collapsible button later -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+    <div class="container">
+        <a href="index.html" class="navbar-brand text-white">LabShare</a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="inventory.html" class="nav-link text-white">Inventory</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="inbox.html" class="nav-link text-white">
+                        Messages <span class="badge badge-light">8</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="notifications.html" class="nav-link text-white">
+                        Notifications <span class="badge badge-light">4</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Post Button -->
+            <form class="form-inline mx-md-4">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button type="button" class="btn btn-outline-light my-2 my-sm-0 " data-toggle="modal"
+                        data-target="#requestModal">Make A Post
+                </button>
+            </form>
+
+            <!-- Dropdown -->
+            <div class="dropdown ml-md-2">
+                <button class="btn btn-outline-secondary text-light dropdown-toggle" type="button"
+                        data-toggle="dropdown">
+                    <img id="nav-pic" width="30" height="30" class="img-fluid rounded"
+                         src="../../img/blank-profile-pic.png">
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="../help">Help</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../index.html">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="my-4">
+    <div class="container">
+        <h2>Inventory</h2>
+        <hr>
+
+        <!-- Taskbar -->
+        <div class="container bg-secondary py-2 mb-2">
+            <div class="row">
+                <div class="col-auto">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+                </div>
+                <div class="col-auto">
+                    <input class="form-control" type="text" placeholder="Search">
+                </div>
+                <div class="col">
+                    <div class="form-group row mb-0">
+                        <label for="table_size" class="col-auto col-form-label text-white pr-0">Table Size:</label>
+                        <div class="col-4 pl-1">
+                            <input type="number" class="form-control p-1 w-25" id="table_size" value=10>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Table -->
+        <div id="table">
+            <table class="table table-light table-striped table-bordered">
+                <!-- Table Headers -->
+                <thead class="thead-dark">
+                <tr>
+                    <th>Name<i class="fas fa-sort ml-2"></i></th>
+                    <th>State<i class="fas fa-sort ml-2"></i></th>
+                    <th>Size<i class="fas fa-sort ml-2"></i></th>
+                    <th>Quantity<i class="fas fa-sort ml-2"></i></th>
+                    <th>Manufacturer<i class="fas fa-sort ml-2"></i></th>
+                    <th>CAS Number<i class="fas fa-sort ml-2"></i></th>
+                    <th>Comments</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="7">You have no items in your inventory.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Page Navigation -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination text-primary">
+                <li class="page-item">
+                    <a id="prev" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a id="next" class="page-link" aria-label="Next">
+                            <span aria-hidden="true">
+                                <span aria-hidden="true">&raquo;</span>
+                            </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Loading Modal -->
+        <div id="loading-modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Loading</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please wait for the table to finish loading.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Item Modal -->
+        <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addItemModalLabel">Add Inventory Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="inventory.html?add=true" method="post" class="needs-validation" novalidate>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Hydrogen Dioxide" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state" class="col-form-label">State:</label>
+                                <select class="custom-select" id="state" name="state">
+                                    <option value="Liquid">Liquid</option>
+                                    <option value="Solid">Solid</option>
+                                    <option value="Gas">Gas</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="size" class="col-form-label">Size:</label>
+                                    <input type="number" class="form-control" id="size" name="size" min="0" step="0.001"
+                                           placeholder="0.25" required>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="unit" class="col-form-label">Unit:</label>
+                                    <input type="text" class="form-control" id="unit" name="unit"
+                                           placeholder="Liters (L)" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity" class="col-form-label">Quantity:</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity" min="0"
+                                       placeholder="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="manufacturer" class="col-form-label">Manufacturer:</label>
+                                <input type="text" class="form-control" id="manufacturer" name="manufacturer"
+                                       placeholder="Fisher Scientific">
+                            </div>
+                            <div class="form-group">
+                                <label for="cas_number" class="col-form-label">CAS Number:</label>
+                                <input type="text" class="form-control" id="cas_number" name="cas_number"
+                                       placeholder="7647-01-0">
+                            </div>
+                            <div class="form-group">
+                                <label for="comments" class="col-form-label">Comments:</label>
+                                <textarea class="form-control" id="comments" name="comments" rows="4"
+                                          placeholder="33-38% Purity"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Request Modal Section -->
+<div class="modal fade" id="requestModal" tabindex=-1 aria-labelledby="requestModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="text-center text-dark modal-title" id="requestModalLabel">Make A Post</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle mb-2" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Post Type
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="nav flex-column nav-pills" role="tablist">
+                            <a class="nav-link active" data-toggle="pill" href="#request-form" role="tab">Request</a>
+                            <a class="nav-link" data-toggle="pill" href="#question-form" role="tab">Question</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="request-form" role="tabpanel">
+                        <form class="request-form" action="" method="post">
+
+                            <div class="form-group">
+                                <label for="item" class="text-dark">Item Name:</label>
+                                <input type="text" id="item" class="form-control" placeholder="ex: John">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location" class="text-dark">Location:</label>
+                                <input type="text" id="location" class="form-control" placeholder="ex: Myer Hall">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date" class="text-dark">Date:</label>
+                                <input type="text" id="date" class="form-control" placeholder="05-06-2019">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="request" class="text-dark">Request:</label>
+                                <textarea id="request" class="form-control" rows="6">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="question-form" role="tabpanel">
+                        <form class="question-form" action="" method="post">
+
+                            <div class="form-group">
+                                <label for="title" class="text-dark">Title:</label>
+                                <input type="text" id="title" class="form-control"
+                                       placeholder="ex: Where are the best labs on campus?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description" class="text-dark">Description:</label>
+                                <textarea id="description" class="form-control" rows="6">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Add Item to Database -->
+<!--
+<?php
+include '../../PHP/includes/db_connection.php';
+
+if (isset($_GET['add'])) {
+    $name = $_POST['name'];
+    $state = $_POST['state'];
+    $size = $_POST['size'];
+    $unit = $_POST['unit'];
+    $quantity = $_POST['quantity'];
+    $manufacturer = $_POST['manufacturer'];
+    $cas_number = $_POST['cas_number'];
+    $comments = $_POST['comments'];
+    $user_id = $_SESSION['id'];
+
+    $item_insert_query = "INSERT INTO inventory(name, state, size, unit, quantity, manufacturer, cas_number, comments, user_id)
+            VALUES ('$name', '$state', '$size', '$unit', '$quantity', '$manufacturer', '$cas_number', '$comments', '$user_id')";
+
+    if ($connection->query($item_insert_query) === TRUE) {
+        echo "<script> location.href='inventory.php'; </script>";
+    } else {
+        echo "Error: " . $item_insert_query . "<br>" . $connection->error;
+    }
+
+}
+?>
+-->
+
+<!-- jQuery & Popper.js & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<script src="../../js/validate-form.js"></script>
+
+<!-- Writing inventory by reading from database -->
+<!--
+<?php include '../../JS/inventory.php'; ?>
+-->
+</body>
+
+</html>
