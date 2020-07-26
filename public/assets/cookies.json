@@ -1,0 +1,11 @@
+{
+  "firstName": "Adory",
+  "lastName": "Vo",
+  "email": "avo@ucsd.edu",
+  "institution": "University of California, San Diego",
+  "department": "CSE",
+  "division": "Computer Science",
+  "building": "Jacobs",
+  "notificationLimit": 100,
+  "admin": "true"
+}

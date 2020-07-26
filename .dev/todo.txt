@@ -1,5 +1,5 @@
 High Priority:
-- Data encryption upon account creation
+- Log out button sets loggedIn cookie to false (DELETE request)
 - Inventory [Adory]
     - search bar
     - edit / delete buttons

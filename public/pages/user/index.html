@@ -100,37 +100,37 @@
                                 </div>
 
                                 <div class="col-auto">
-                                    <span class="d-block name">John Doe</span>
-                                    <span class="d-block email">jdoe@ucsd.edu</span>
-                                    <span class="d-block text-info">LabShare Admin</span>
+                                    <span id="currentName" class="d-block name">John Doe</span>
+                                    <span id="currentEmail" class="d-block email">jdoe@ucsd.edu</span>
+                                    <span id="adminLabel" class="d-block text-info">LabShare Admin</span>
                                 </div>
                             </div>
 
                             <div class="row mt-2">
                                 <div class="col">
                                     <strong>Institution:</strong>
-                                    <span class="institution">UCSD</span>
+                                    <span id="currentInstitution" class="institution">UCSD</span>
                                 </div>
                             </div>
 
                             <div class="row mt-2">
                                 <div class="col">
                                     <strong>Department:</strong>
-                                    <span class="department">Biology</span>
+                                    <span id="currentDepartment" class="department">Biology</span>
                                 </div>
                             </div>
 
                             <div class="row mt-2">
                                 <div class="col">
                                     <strong>Division:</strong>
-                                    <span class="division">Neurobiology</span>
+                                    <span id="currentDivision" class="division">Neurobiology</span>
                                 </div>
                             </div>
 
                             <div class="row justify-content-between mt-2">
                                 <div class="col-7 align-self-center text-wrap">
                                     <strong>Building:</strong>
-                                    <span class="building">Bonner Hall</span>
+                                    <span id="currentBuilding" class="building">Bonner Hall</span>
                                 </div>
 
                                 <div class="col-auto align-self-end pr-0">
@@ -423,15 +423,9 @@
 </div>
 
 <!-- jQuery & Popper.js & Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
 
 <!-- TODO: JS to add a new post -->
 <script src="../../js/add-post.js"></script>
@@ -440,6 +434,7 @@
 <!--
 <?php include "../../JS/post_user_profile_update.php"; ?>
 -->
+<script src="../../js/update_profile.js"></script>
 </body>
 
 </html>

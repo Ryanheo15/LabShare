@@ -1,7 +1,7 @@
-1) Navigate to the LabShare folder.
+1) Start the MySQL server in XAMPP.
 
-2) Start the MySQL server in XAMPP.
+2) Navigate to the LabShare folder in Command Prompt.
 
-2) In Command Prompt, execute: node server.js
+3) In Command Prompt, execute: node server.js
 
-3) In the browser, the home page is located at: http://localhost:3000/pages/
+4) In the browser, the home page is located at: http://localhost:3000/pages/
